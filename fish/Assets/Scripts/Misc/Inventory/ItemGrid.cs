@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class ItemGrid : MonoBehaviour
 {
-    const float tileWidth = 32;
-    const float tileHeight = 32;
+    public const float tileWidth = 32;
+    public const float tileHeight = 32;
 
     [SerializeField] int gridWidth = 10;
     [SerializeField] int gridHeight = 15;
@@ -40,23 +40,45 @@ public class ItemGrid : MonoBehaviour
         return tileGridPosition;
     }
 
+    public InventoryItem PickUpItem(int x, int y)
+    {
+        InventoryItem toReturn = inventoryItemSlot[x, y];
+
+        if (toReturn == null)
+            return null;
+
+        for (int i = 0; i < toReturn.itemData.width; i++)
+        {
+            for (int j = 0; j < toReturn.itemData.height; j++)
+            {
+                inventoryItemSlot[toReturn.onGridPositionX + i, toReturn.onGridPositionY + j] = null;
+            }
+        }
+
+        return toReturn;
+    }
+
     public void PlaceItem(InventoryItem item, int posX, int posY)
     {
         RectTransform rectTransform = item.GetComponent<RectTransform>();
         rectTransform.SetParent(this.rectTransform);
-        inventoryItemSlot[posX, posY] = item;
 
+        // zodat de item alle nodige tiles neemt om ermee te interacten, niet enkel de 1ste tile (links boven)
+        for (int i = 0; i < item.itemData.width; i++)
+        {
+            for (int j = 0; j < item.itemData.height; j++)
+            {
+                inventoryItemSlot[posX + i, posY + j] = item;
+            }
+        }
+
+        item.onGridPositionX = posX;
+        item.onGridPositionY = posY;
+        
         Vector2 position = new Vector2();
-        position.x = posX * tileWidth + tileWidth / 2;
-        position.y = -(posY * tileHeight + tileHeight / 2);
+        position.x = posX * tileWidth + tileWidth * item.itemData.width/ 2;
+        position.y = -(posY * tileHeight + tileHeight * item.itemData.height/ 2);
 
         rectTransform.localPosition = position;
-    }
-
-    internal InventoryItem PickUpItem(int x, int y)
-    {
-        InventoryItem toReturn = inventoryItemSlot[x, y];
-        inventoryItemSlot[x, y] = null;
-        return toReturn;
     }
 }
