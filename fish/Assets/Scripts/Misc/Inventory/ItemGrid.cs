@@ -26,6 +26,12 @@ public class ItemGrid : MonoBehaviour
         // test
         InventoryItem inventoryItem = Instantiate(itemPrefab).GetComponent<InventoryItem>();
         PlaceItem(inventoryItem, 1, 1);
+
+        inventoryItem = Instantiate(itemPrefab).GetComponent<InventoryItem>();
+        PlaceItem(inventoryItem, 5, 2);
+
+        inventoryItem = Instantiate(itemPrefab).GetComponent<InventoryItem>();
+        PlaceItem(inventoryItem, 3, 10);
     }
 
     private void Init(int width, int height)
