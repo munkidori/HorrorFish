@@ -1,27 +1,27 @@
-using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FishingGame : MonoBehaviour
 {
     public Slider progress;
-    public Slider struggle;
     public Scrollbar scrollbar;
     public FishManager fishManager;
-    private Fish currentFish;
+    private ItemData currentFish;
+    public InventoryManager inventoryManager; // Add reference to InventoryManager
 
-    public void StartFishingGame(Fish selectedFish)
+    public void StartFishingGame(ItemData selectedFish)
     {
         currentFish = selectedFish;
-        Debug.Log($"Fishing for: {currentFish.name}");
+        Debug.Log($"Fishing for: {currentFish.itemName}");
 
-        SetFish(currentFish); 
+        SetFish(currentFish);
 
         gameObject.SetActive(true);
         progress.value = 0.5f;
         scrollbar.value = 0f;
     }
 
-    public void SetFish(Fish fish)
+    public void SetFish(ItemData fish)
     {
         currentFish = fish;
         var fishingStruggle = GetComponentInChildren<FishingStruggle>();
@@ -35,12 +35,12 @@ public class FishingGame : MonoBehaviour
     {
         if (progress.value <= 0)
         {
-            Debug.Log($"The {currentFish.name} escaped!");
+            Debug.Log($"The {currentFish.itemName} escaped!");
             EndFishingGame(false);
         }
         else if (progress.value >= 1)
         {
-            Debug.Log($"Caught {currentFish.name}!");
+            Debug.Log($"Caught {currentFish.itemName}!");
             EndFishingGame(true);
         }
     }
@@ -50,10 +50,27 @@ public class FishingGame : MonoBehaviour
         var fishingReel = GetComponentInChildren<FishingReel>();
         fishingReel.isClicked = false;
 
+        if (caughtFish && inventoryManager != null)
+        {
+            AddFishToInventory();
+        }
+
         progress.value = 0.5f;
         scrollbar.value = 0f;
         gameObject.SetActive(false);
         currentFish = null;
     }
 
+    private void AddFishToInventory()
+    {
+        if (inventoryManager.SelectedItemGrid != null && currentFish != null)
+        {
+            GameObject fishItemObj = new GameObject(currentFish.itemName);
+            InventoryItem fishItem = fishItemObj.AddComponent<InventoryItem>();
+            fishItem.Set(currentFish);
+
+            inventoryManager.InsertItem(fishItem);
+            Debug.Log($"Added {currentFish.itemName} to inventory.");
+        }
+    }
 }

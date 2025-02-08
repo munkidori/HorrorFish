@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fa8c122dd0d2ae347992951da2d7b10c, type: 3}
-  m_Name: Diamond
+  m_Name: Bass
   m_EditorClassIdentifier: 
-  width: 1
-  height: 1
-  image: {fileID: 21300000, guid: f3ebbe1b300da1e4ba99b8f2858cc086, type: 3}
+  width: 3
+  height: 2
+  image: {fileID: 21300000, guid: a81efec5dd2129841b6a10cacd9bc995, type: 3}

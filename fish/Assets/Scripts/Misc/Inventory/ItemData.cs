@@ -1,8 +1,12 @@
 using UnityEngine;
 
-[CreateAssetMenu]
+[CreateAssetMenu(fileName = "NewItem", menuName = "Prefabs/Inventory/Item")]
 public class ItemData : ScriptableObject
 {
-    public int width, height = 1; // hoeveel tiles neemt deze item in in mijn grid
+    public string itemName;
+    public float pullForce, pushForce;
+    public float jumpCD;
+    public float healAmount;
+    public int width = 1, height = 1; // size in grid
     public Sprite image;
 }

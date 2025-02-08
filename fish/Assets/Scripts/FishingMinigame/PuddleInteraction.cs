@@ -25,7 +25,7 @@ public class PuddleInteraction : MonoBehaviour
 
                 if (fishingGame != null)
                 {
-                    Fish randomFish = fishManager.GetRandomFish(); 
+                    ItemData randomFish = fishManager.GetRandomFish(); 
                     fishingGame.StartFishingGame(randomFish);
                 }
                 Destroy(gameObject);

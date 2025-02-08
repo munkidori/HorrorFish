@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -38,17 +39,9 @@ public class InventoryManager : MonoBehaviour
     {
         DragItem();
 
-
-        // test
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetMouseButtonDown(1))
         {
-            CreateRandomItem();
-        }
-
-        // test
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            InsertRandomItem();
+            RotateItem();
         }
 
         if (selectedItemGrid == null)
@@ -63,6 +56,14 @@ public class InventoryManager : MonoBehaviour
         {
             ItemInteraction();
         }
+    }
+
+    private void RotateItem()
+    {
+        if (selectedItem == false)
+            return;
+
+        selectedItem.Rotate();
     }
 
     private void ItemInteraction()
@@ -83,8 +84,8 @@ public class InventoryManager : MonoBehaviour
 
         if (selectedItem != null)
         {
-            position.x -= (selectedItem.itemData.width - 1) * ItemGrid.tileWidth / 2;
-            position.y += (selectedItem.itemData.height - 1) * ItemGrid.tileHeight / 2;
+            position.x -= (selectedItem.Width - 1) * ItemGrid.tileWidth / 2;
+            position.y += (selectedItem.Height - 1) * ItemGrid.tileHeight / 2;
         }
 
         return selectedItemGrid.GetTileGridPosition(position);
@@ -103,6 +104,7 @@ public class InventoryManager : MonoBehaviour
                 selectedItem = overlapItem;
                 overlapItem = null;
                 rectTransform = selectedItem.GetComponent<RectTransform>();
+                rectTransform.SetAsLastSibling();
             }
         }
     }
@@ -151,21 +153,7 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    // test
-    private void CreateRandomItem()
-    {
-        InventoryItem inventoryItem = Instantiate(itemPrefab).GetComponent<InventoryItem>();
-        selectedItem = inventoryItem;
-
-        rectTransform = inventoryItem.GetComponent<RectTransform>();
-        rectTransform.SetParent(canvasTransform);
-
-        int selectedItemID = Random.Range(0, items.Count);
-        inventoryItem.Set(items[selectedItemID]);
-
-    }
-
-    private void InsertItem(InventoryItem itemToInsert)
+    public void InsertItem(InventoryItem itemToInsert)
     {
         Vector2Int? posOnGrid = selectedItemGrid.FindSpaceForItem(itemToInsert);
 
@@ -173,16 +161,5 @@ public class InventoryManager : MonoBehaviour
             return;
 
         selectedItemGrid.PlaceItem(itemToInsert, posOnGrid.Value.x, posOnGrid.Value.y);
-    }
-
-    // test
-    private void InsertRandomItem()
-    {
-        if (selectedItemGrid == null)
-            return;
-        CreateRandomItem();
-        InventoryItem itemToInsert = selectedItem;
-        selectedItem = null;
-        InsertItem(itemToInsert);
     }
 }

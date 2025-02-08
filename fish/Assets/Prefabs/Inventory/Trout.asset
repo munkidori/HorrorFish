@@ -10,8 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fa8c122dd0d2ae347992951da2d7b10c, type: 3}
-  m_Name: Potion
+  m_Name: Trout
   m_EditorClassIdentifier: 
+  name: Bass
+  pullForce: 0
+  pushForce: 0
+  jumpCD: 0
+  healAmount: 0
   width: 1
   height: 2
   image: {fileID: 21300000, guid: d14b488b2f8233445b6d00af68083eac, type: 3}

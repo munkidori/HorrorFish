@@ -6,7 +6,7 @@ public class FishingStruggle : MonoBehaviour
     private Slider slider;
     private bool isPulling;
     private float cooldownTimer;
-    private Fish currentFish;
+    private ItemData currentFish;
 
     private void Start()
     {
@@ -30,11 +30,13 @@ public class FishingStruggle : MonoBehaviour
             slider.value = Mathf.MoveTowards(slider.value, 0f, currentFish.pushForce * Time.deltaTime);
     }
 
-    public void GetFish(Fish fish)
+    public void GetFish(ItemData fish)
     {
         currentFish = fish;
         isPulling = Random.value > 0.5f;
         cooldownTimer = fish.jumpCD;
+        slider.value = 0.5f;
         Debug.Log($"Struggling with {fish.name}!");
     }
+
 }
