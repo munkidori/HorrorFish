@@ -6,8 +6,8 @@ public class ItemGrid : MonoBehaviour
     const float tileWidth = 32;
     const float tileHeight = 32;
 
-    [SerializeField] int gridWidth;
-    [SerializeField] int gridHeight;
+    [SerializeField] int gridWidth = 10;
+    [SerializeField] int gridHeight = 15;
 
     RectTransform rectTransform;
     Vector2 positionOnTheGrid = new Vector2();
@@ -15,23 +15,10 @@ public class ItemGrid : MonoBehaviour
 
     InventoryItem[,] inventoryItemSlot;
 
-    // test
-    [SerializeField] GameObject itemPrefab;
-
     private void Start()
     {
         rectTransform = GetComponent<RectTransform>();
         Init(gridWidth, gridHeight);
-
-        // test
-        InventoryItem inventoryItem = Instantiate(itemPrefab).GetComponent<InventoryItem>();
-        PlaceItem(inventoryItem, 1, 1);
-
-        inventoryItem = Instantiate(itemPrefab).GetComponent<InventoryItem>();
-        PlaceItem(inventoryItem, 5, 2);
-
-        inventoryItem = Instantiate(itemPrefab).GetComponent<InventoryItem>();
-        PlaceItem(inventoryItem, 3, 10);
     }
 
     private void Init(int width, int height)

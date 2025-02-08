@@ -1,7 +1,15 @@
+using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InventoryItem : MonoBehaviour
 {
-    public int sizeWidth, sizeHeight = 1; // hoeveel tiles neemt deze item in in mijn grid
-    
+    public ItemData itemData;
+
+    internal void Set(ItemData itemData)
+    {
+        this.itemData = itemData;
+
+        GetComponent<Image>().sprite = itemData.image;
+    }
 }
