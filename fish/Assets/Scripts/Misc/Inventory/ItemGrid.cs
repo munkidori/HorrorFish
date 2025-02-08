@@ -40,6 +40,7 @@ public class ItemGrid : MonoBehaviour
         return tileGridPosition;
     }
 
+    // overload method met het te plaatse item reference
     public bool PlaceItem(InventoryItem item, int posX, int posY, ref InventoryItem overlapItem)
     {
         if (BoundaryCheck(posX, posY, item.itemData.width, item.itemData.height) == false)
@@ -54,6 +55,13 @@ public class ItemGrid : MonoBehaviour
         if (overlapItem != null)
             CleanGridReference(overlapItem);
 
+        PlaceItem(item, posX, posY);
+
+        return true;
+    }
+
+    public void PlaceItem(InventoryItem item, int posX, int posY)
+    {
         RectTransform rectTransform = item.GetComponent<RectTransform>();
         rectTransform.SetParent(this.rectTransform);
 
@@ -73,7 +81,6 @@ public class ItemGrid : MonoBehaviour
         position = CalculatePosition(item, posX, posY);
 
         rectTransform.localPosition = position;
-        return true;
     }
 
     public Vector2 CalculatePosition(InventoryItem item, int posX, int posY)
@@ -118,7 +125,7 @@ public class ItemGrid : MonoBehaviour
         return true;
     }
 
-    bool BoundaryCheck(int posX, int posY, int width, int height)
+    public bool BoundaryCheck(int posX, int posY, int width, int height)
     {
         if (PositionCheck(posX, posY) == false)
             return false;
@@ -132,7 +139,7 @@ public class ItemGrid : MonoBehaviour
         return true;
     }
 
-    private bool OverlapCheck(int posY, int posX, int width, int height, ref InventoryItem overlapItem)
+    private bool OverlapCheck(int posX, int posY, int width, int height, ref InventoryItem overlapItem)
     {
         for (int i = 0; i < width; i++)
         {
@@ -143,7 +150,7 @@ public class ItemGrid : MonoBehaviour
                     if (overlapItem == null)
                         overlapItem = inventoryItemSlot[posX + i, posY + j];
                     else if (overlapItem != inventoryItemSlot[posX + i, posY + j])
-                        return false;                        
+                        return false;
                 }
             }
         }
@@ -151,8 +158,39 @@ public class ItemGrid : MonoBehaviour
         return true;
     }
 
-    internal InventoryItem GetItem(int x, int y)
+    public InventoryItem GetItem(int x, int y)
     {
         return inventoryItemSlot[x, y];
+    }
+
+    public Vector2Int? FindSpaceForItem(InventoryItem itemToInsert)
+    {
+        int height = gridHeight - itemToInsert.itemData.height + 1;
+        int width = gridWidth - itemToInsert.itemData.width + 1;
+
+        for (int y = 0; y < height; y++)
+        {
+            for (int x = 0; x < width; x++)
+            {
+                if (CheckAvailableSpace(x,y, itemToInsert.itemData.width, itemToInsert.itemData.height) == true)
+                    return new Vector2Int(x, y);                
+            }
+        }
+
+        return null;
+    }
+
+    private bool CheckAvailableSpace(int posX, int posY, int width, int height)
+    {
+        for (int i = 0; i < width; i++)
+        {
+            for (int j = 0; j < height; j++)
+            {
+                if (inventoryItemSlot[posX + i, posY + j] != null)
+                    return false;
+            }
+        }
+
+        return true;
     }
 }

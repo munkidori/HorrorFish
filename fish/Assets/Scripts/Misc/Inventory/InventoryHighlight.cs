@@ -18,20 +18,26 @@ public class InventoryHighlight : MonoBehaviour
         highlighter.sizeDelta = size;
     }
 
-    public void SetPosition(ItemGrid targetGrid, InventoryItem targetItem)
-    {
-        Vector2 pos = targetGrid.CalculatePosition(targetItem, targetItem.onGridPositionX, targetItem.onGridPositionY);
-        highlighter.localPosition = pos;
-    }
+
 
     public void SetParent(ItemGrid targetGrid)
     {
+        if (targetGrid == null)
+            return;
+
         highlighter.SetParent(targetGrid.GetComponent<RectTransform>());
     }
 
     public void SetPosition(ItemGrid targetGrid, InventoryItem targetItem, int posX, int posY)
     {
         Vector2 pos = targetGrid.CalculatePosition(targetItem, posX, posY);
+        highlighter.localPosition = pos;
+    }
+
+    // overload methode voor het overlappende item highlighter
+    public void SetPosition(ItemGrid targetGrid, InventoryItem targetItem)
+    {
+        Vector2 pos = targetGrid.CalculatePosition(targetItem, targetItem.onGridPositionX, targetItem.onGridPositionY);
         highlighter.localPosition = pos;
     }
 }

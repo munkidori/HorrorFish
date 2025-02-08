@@ -6,7 +6,17 @@ using Random = UnityEngine.Random;
 
 public class InventoryManager : MonoBehaviour
 {
-    [HideInInspector] public ItemGrid selectedItemGrid;
+    [HideInInspector] private ItemGrid selectedItemGrid;
+    public ItemGrid SelectedItemGrid 
+    { 
+        get => selectedItemGrid;
+        set
+        {
+            selectedItemGrid = value;
+            inventoryHighlight.SetParent(value);
+        }
+    }
+
     InventoryItem selectedItem;
     InventoryItem overlapItem;
     RectTransform rectTransform;
@@ -17,6 +27,7 @@ public class InventoryManager : MonoBehaviour
 
     InventoryHighlight inventoryHighlight;
     InventoryItem itemToHighlight;
+    Vector2Int oldPosition;
 
     private void Awake()
     {
@@ -32,6 +43,12 @@ public class InventoryManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q))
         {
             CreateRandomItem();
+        }
+
+        // test
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            InsertRandomItem();
         }
 
         if (selectedItemGrid == null)
@@ -108,6 +125,11 @@ public class InventoryManager : MonoBehaviour
     {
         Vector2Int positionGrid = GetTileGridPosition();
 
+        if (oldPosition == positionGrid)
+            return;
+
+        oldPosition = positionGrid;
+
         if (selectedItem == null)
         {
             itemToHighlight = selectedItemGrid.GetItem(positionGrid.x, positionGrid.y);
@@ -116,7 +138,6 @@ public class InventoryManager : MonoBehaviour
             {
                 inventoryHighlight.Show(true);
                 inventoryHighlight.SetSize(itemToHighlight);
-                inventoryHighlight.SetParent(selectedItemGrid);
                 inventoryHighlight.SetPosition(selectedItemGrid, itemToHighlight);
             }
             else
@@ -124,13 +145,13 @@ public class InventoryManager : MonoBehaviour
         }
         else
         {
-            inventoryHighlight.Show(true);
+            inventoryHighlight.Show(selectedItemGrid.BoundaryCheck(positionGrid.x, positionGrid.y, selectedItem.itemData.width, selectedItem.itemData.height));
             inventoryHighlight.SetSize(selectedItem);
-            inventoryHighlight.SetParent(selectedItemGrid);
             inventoryHighlight.SetPosition(selectedItemGrid, selectedItem, positionGrid.x, positionGrid.y);
         }
     }
 
+    // test
     private void CreateRandomItem()
     {
         InventoryItem inventoryItem = Instantiate(itemPrefab).GetComponent<InventoryItem>();
@@ -142,5 +163,26 @@ public class InventoryManager : MonoBehaviour
         int selectedItemID = Random.Range(0, items.Count);
         inventoryItem.Set(items[selectedItemID]);
 
+    }
+
+    private void InsertItem(InventoryItem itemToInsert)
+    {
+        Vector2Int? posOnGrid = selectedItemGrid.FindSpaceForItem(itemToInsert);
+
+        if (posOnGrid == null)
+            return;
+
+        selectedItemGrid.PlaceItem(itemToInsert, posOnGrid.Value.x, posOnGrid.Value.y);
+    }
+
+    // test
+    private void InsertRandomItem()
+    {
+        if (selectedItemGrid == null)
+            return;
+        CreateRandomItem();
+        InventoryItem itemToInsert = selectedItem;
+        selectedItem = null;
+        InsertItem(itemToInsert);
     }
 }
