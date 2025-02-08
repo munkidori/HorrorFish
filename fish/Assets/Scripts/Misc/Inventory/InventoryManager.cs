@@ -58,8 +58,10 @@ public class InventoryManager : MonoBehaviour
         }
         else
         {
-            selectedItemGrid.PlaceItem(selectedItem, tileGridPosition.x, tileGridPosition.y);
-            selectedItem = null;
+            bool complete = selectedItemGrid.PlaceItem(selectedItem, tileGridPosition.x, tileGridPosition.y);
+
+            if (complete)
+                selectedItem = null;
         }
     }
 

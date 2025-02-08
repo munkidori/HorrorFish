@@ -40,26 +40,11 @@ public class ItemGrid : MonoBehaviour
         return tileGridPosition;
     }
 
-    public InventoryItem PickUpItem(int x, int y)
+    public bool PlaceItem(InventoryItem item, int posX, int posY)
     {
-        InventoryItem toReturn = inventoryItemSlot[x, y];
+        if (BoundaryCheck(posX, posY, item.itemData.width, item.itemData.height) == false)
+            return false;
 
-        if (toReturn == null)
-            return null;
-
-        for (int i = 0; i < toReturn.itemData.width; i++)
-        {
-            for (int j = 0; j < toReturn.itemData.height; j++)
-            {
-                inventoryItemSlot[toReturn.onGridPositionX + i, toReturn.onGridPositionY + j] = null;
-            }
-        }
-
-        return toReturn;
-    }
-
-    public void PlaceItem(InventoryItem item, int posX, int posY)
-    {
         RectTransform rectTransform = item.GetComponent<RectTransform>();
         rectTransform.SetParent(this.rectTransform);
 
@@ -80,5 +65,49 @@ public class ItemGrid : MonoBehaviour
         position.y = -(posY * tileHeight + tileHeight * item.itemData.height/ 2);
 
         rectTransform.localPosition = position;
+        return true;
+    }
+
+    public InventoryItem PickUpItem(int x, int y)
+    {
+        InventoryItem toReturn = inventoryItemSlot[x, y];
+
+        if (toReturn == null)
+            return null;
+
+        for (int i = 0; i < toReturn.itemData.width; i++)
+        {
+            for (int j = 0; j < toReturn.itemData.height; j++)
+            {
+                inventoryItemSlot[toReturn.onGridPositionX + i, toReturn.onGridPositionY + j] = null;
+            }
+        }
+
+        return toReturn;
+    }
+
+    bool PositionCheck(int posX, int posY)
+    {
+        if (posX < 0 || posY < 0)
+            return false;
+
+        if (posX >= gridWidth || posY >= gridHeight)
+            return false;
+
+        return true;
+    }
+
+    bool BoundaryCheck(int posX, int posY, int width, int height)
+    {
+        if (PositionCheck(posX, posY) == false)
+            return false;
+
+        posX += width-1;
+        posY += height-1;
+
+        if (PositionCheck(posX, posY) == false)
+            return false;
+
+        return true;
     }
 }
