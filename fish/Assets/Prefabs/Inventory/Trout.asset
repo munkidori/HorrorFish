@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa8c122dd0d2ae347992951da2d7b10c, type: 3}
   m_Name: Trout
   m_EditorClassIdentifier: 
-  name: Bass
-  pullForce: 0
-  pushForce: 0
-  jumpCD: 0
-  healAmount: 0
+  itemName: Trout
+  pullForce: 0.7
+  pushForce: 0.4
+  jumpCD: 1.5
+  healAmount: 0.2
   width: 1
   height: 2
   image: {fileID: 21300000, guid: d14b488b2f8233445b6d00af68083eac, type: 3}

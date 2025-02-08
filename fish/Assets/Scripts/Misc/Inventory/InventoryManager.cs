@@ -22,7 +22,6 @@ public class InventoryManager : MonoBehaviour
     InventoryItem overlapItem;
     RectTransform rectTransform;
 
-    [SerializeField] List<ItemData> items;
     [SerializeField] GameObject itemPrefab;
     [SerializeField] Transform canvasTransform;
 
@@ -91,7 +90,7 @@ public class InventoryManager : MonoBehaviour
         return selectedItemGrid.GetTileGridPosition(position);
     }
 
-    private void PlaceItem(Vector2Int tileGridPosition)
+    public void PlaceItem(Vector2Int tileGridPosition)
     {
         bool complete = selectedItemGrid.PlaceItem(selectedItem, tileGridPosition.x, tileGridPosition.y, ref overlapItem);
 
@@ -155,11 +154,32 @@ public class InventoryManager : MonoBehaviour
 
     public void InsertItem(InventoryItem itemToInsert)
     {
-        Vector2Int? posOnGrid = selectedItemGrid.FindSpaceForItem(itemToInsert);
+        if (SelectedItemGrid == null)
+        {
+            Debug.LogError("No grid selected for item insertion!");
+            return;
+        }
+
+        Vector2Int? posOnGrid = SelectedItemGrid.FindSpaceForItem(itemToInsert);
 
         if (posOnGrid == null)
+        {
+            Debug.LogWarning($"No space found for {itemToInsert.itemData.itemName} in inventory!");
+            Destroy(itemToInsert.gameObject);
             return;
+        }
 
-        selectedItemGrid.PlaceItem(itemToInsert, posOnGrid.Value.x, posOnGrid.Value.y);
+        InventoryItem overlapItem = null;
+        bool placed = SelectedItemGrid.PlaceItem(itemToInsert, posOnGrid.Value.x, posOnGrid.Value.y, ref overlapItem);
+        
+        if (placed)
+        {
+            Debug.Log($"Successfully placed {itemToInsert.itemData.itemName} at {posOnGrid.Value}");
+        }
+        else
+        {
+            Debug.LogWarning($"Failed to place {itemToInsert.itemData.itemName} in inventory!");
+            Destroy(itemToInsert.gameObject);
+        }
     }
 }

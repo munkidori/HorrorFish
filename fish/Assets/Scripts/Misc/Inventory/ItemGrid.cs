@@ -43,6 +43,9 @@ public class ItemGrid : MonoBehaviour
     // overload method met het te plaatse item reference
     public bool PlaceItem(InventoryItem item, int posX, int posY, ref InventoryItem overlapItem)
     {
+        if (posX < 0 || posY < 0 || posX + item.Width > gridWidth || posY + item.Height > gridHeight)
+            return false;
+
         if (BoundaryCheck(posX, posY, item.Width, item.Height) == false)
             return false;
 
@@ -139,12 +142,15 @@ public class ItemGrid : MonoBehaviour
         return true;
     }
 
-    private bool OverlapCheck(int posX, int posY, int width, int height, ref InventoryItem overlapItem)
+    private bool OverlapCheck(int posY, int posX, int width, int height, ref InventoryItem overlapItem)
     {
         for (int i = 0; i < width; i++)
         {
             for (int j = 0; j < height; j++)
             {
+                if (posX + i >= gridWidth || posY + j >= gridHeight)
+                    return false;
+
                 if (inventoryItemSlot[posX + i, posY + j] != null)
                 {
                     if (overlapItem == null)
@@ -192,5 +198,12 @@ public class ItemGrid : MonoBehaviour
         }
 
         return true;
+    }
+
+    public bool IsSlotTaken(int x, int y)
+    {
+        if (x < 0 || y < 0 || x >= gridWidth || y >= gridHeight)
+            return true;
+        return inventoryItemSlot[x, y] != null;
     }
 }
