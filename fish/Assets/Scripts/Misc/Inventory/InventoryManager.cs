@@ -7,6 +7,7 @@ public class InventoryManager : MonoBehaviour
 {
     [HideInInspector] public ItemGrid selectedItemGrid;
     InventoryItem selectedItem;
+    InventoryItem overlapItem;
     RectTransform rectTransform;
 
     [SerializeField] List<ItemData> items;
@@ -50,19 +51,36 @@ public class InventoryManager : MonoBehaviour
         Vector2Int tileGridPosition = selectedItemGrid.GetTileGridPosition(Input.mousePosition);
 
         if (selectedItem == null)
-        {
-            selectedItem = selectedItemGrid.PickUpItem(tileGridPosition.x, tileGridPosition.y);
-
-            if (selectedItem != null)
-                rectTransform = selectedItem.GetComponent<RectTransform>();
-        }
+            GrabItem(tileGridPosition);
         else
         {
-            bool complete = selectedItemGrid.PlaceItem(selectedItem, tileGridPosition.x, tileGridPosition.y);
-
-            if (complete)
-                selectedItem = null;
+            PlaceItem(tileGridPosition);
         }
+    }
+
+    private void PlaceItem(Vector2Int tileGridPosition)
+    {
+        bool complete = selectedItemGrid.PlaceItem(selectedItem, tileGridPosition.x, tileGridPosition.y, ref overlapItem);
+
+        if (complete)
+        {
+            selectedItem = null;
+
+            if (overlapItem != null)
+            {
+                selectedItem = overlapItem;
+                overlapItem = null;
+                rectTransform = selectedItem.GetComponent<RectTransform>();
+            }
+        }
+    }
+
+    private void GrabItem(Vector2Int tileGridPosition)
+    {
+        selectedItem = selectedItemGrid.PickUpItem(tileGridPosition.x, tileGridPosition.y);
+
+        if (selectedItem != null)
+            rectTransform = selectedItem.GetComponent<RectTransform>();
     }
 
     private void DragItem()
