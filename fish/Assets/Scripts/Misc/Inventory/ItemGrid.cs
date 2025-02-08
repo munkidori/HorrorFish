@@ -68,13 +68,20 @@ public class ItemGrid : MonoBehaviour
 
         item.onGridPositionX = posX;
         item.onGridPositionY = posY;
-        
+
         Vector2 position = new Vector2();
-        position.x = posX * tileWidth + tileWidth * item.itemData.width/ 2;
-        position.y = -(posY * tileHeight + tileHeight * item.itemData.height/ 2);
+        position = CalculatePosition(item, posX, posY);
 
         rectTransform.localPosition = position;
         return true;
+    }
+
+    public Vector2 CalculatePosition(InventoryItem item, int posX, int posY)
+    {
+        Vector2 position;
+        position.x = posX * tileWidth + tileWidth * item.itemData.width / 2;
+        position.y = -(posY * tileHeight + tileHeight * item.itemData.height / 2);
+        return position;
     }
 
     public InventoryItem PickUpItem(int x, int y)
@@ -142,5 +149,10 @@ public class ItemGrid : MonoBehaviour
         }
 
         return true;
+    }
+
+    internal InventoryItem GetItem(int x, int y)
+    {
+        return inventoryItemSlot[x, y];
     }
 }
