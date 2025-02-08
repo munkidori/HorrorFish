@@ -116,10 +116,18 @@ public class InventoryManager : MonoBehaviour
             {
                 inventoryHighlight.Show(true);
                 inventoryHighlight.SetSize(itemToHighlight);
+                inventoryHighlight.SetParent(selectedItemGrid);
                 inventoryHighlight.SetPosition(selectedItemGrid, itemToHighlight);
             }
             else
                 inventoryHighlight.Show(false);
+        }
+        else
+        {
+            inventoryHighlight.Show(true);
+            inventoryHighlight.SetSize(selectedItem);
+            inventoryHighlight.SetParent(selectedItemGrid);
+            inventoryHighlight.SetPosition(selectedItemGrid, selectedItem, positionGrid.x, positionGrid.y);
         }
     }
 
