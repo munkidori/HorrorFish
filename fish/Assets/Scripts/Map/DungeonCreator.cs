@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.Rendering.DebugUI.Table;
 
 public class DungeonCreator : MonoBehaviour
 {
@@ -16,6 +17,9 @@ public class DungeonCreator : MonoBehaviour
     public float roomTopCornerMidifier;
     [Range(0, 2)]
     public int roomOffset;
+    public GameObject wallVertical, wallHorizontal;
+    List<Vector3Int> possibleWallHorizontalPosition, possibleWallVerticalPosition;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,11 +36,30 @@ public class DungeonCreator : MonoBehaviour
             roomTopCornerMidifier,
             roomOffset,
             corridorWidth);
-        for (int i = 0; i < listOfRooms.Count; i++)
-        {
-            CreateMesh(listOfRooms[i].BottomLeftAreaCorner, listOfRooms[i].TopRightAreaCorner);
-        }
 
+        GameObject wallParent = new GameObject("WallParent");
+        wallParent.transform.parent = transform;
+        possibleWallHorizontalPosition = new List<Vector3Int>();
+        possibleWallVerticalPosition = new List<Vector3Int>();
+
+        for (int i = 0; i < listOfRooms.Count; i++)
+            CreateMesh(listOfRooms[i].BottomLeftAreaCorner, listOfRooms[i].TopRightAreaCorner);
+       
+        CreateWalls(wallParent);
+    }
+
+    private void CreateWalls(GameObject wallParent)
+    {
+        foreach (var wallPosition in possibleWallHorizontalPosition)
+            CreateWall(wallParent, wallPosition, wallHorizontal);
+
+        foreach (var wallPosition in possibleWallVerticalPosition)
+            CreateWall(wallParent, wallPosition, wallVertical);
+    }
+
+    private void CreateWall(GameObject wallParent, Vector3Int wallPosition, GameObject wallPrefab)
+    {
+        Instantiate(wallPrefab, wallPosition, Quaternion.identity, wallParent.transform);
     }
 
     private void CreateMesh(Vector2 bottomLeftCorner, Vector2 topRightCorner)
@@ -81,6 +104,44 @@ public class DungeonCreator : MonoBehaviour
         dungeonFloor.GetComponent<MeshFilter>().mesh = mesh;
         dungeonFloor.GetComponent<MeshRenderer>().material = material;
         dungeonFloor.tag = "Terrain";
+        dungeonFloor.transform.parent = transform;
 
+        // onderste muren tekenen
+        for (int row = (int)bottomLeftV.x; row <= (int)bottomRightV.x; row++)
+        {
+            var wallPosition = new Vector3(row, 0, bottomLeftV.z);
+            AddWallPositionToList(wallPosition, possibleWallHorizontalPosition);
+        }
+
+        // bovenste muren tekenen
+        for (int row = (int)topLeftV.x; row <= (int)topRightV.x; row++)
+        {
+            var wallPosition = new Vector3(row, 0, topRightV.z);
+            AddWallPositionToList(wallPosition, possibleWallHorizontalPosition);
+        }
+
+        // linker muren tekenen
+        for (int column = (int)bottomLeftV.z; column <= (int)topLeftV.z; column++)
+        {
+            var wallPosition = new Vector3(bottomLeftV.x, 0, column);
+            AddWallPositionToList(wallPosition, possibleWallVerticalPosition);
+        }
+
+        // rechter muren tekenen
+        for (int column = (int)bottomRightV.z; column <= (int)topRightV.z; column++)
+        {
+            var wallPosition = new Vector3(bottomRightV.x, 0, column);
+            AddWallPositionToList(wallPosition, possibleWallVerticalPosition);
+        }
+    }
+
+    private void AddWallPositionToList(Vector3 wallPosition, List<Vector3Int> wallList)
+    {
+        Vector3Int point = Vector3Int.CeilToInt(wallPosition);
+
+        if (wallList.Contains(point))
+            wallList.Remove(point);
+        else
+            wallList.Add(point);
     }
 }

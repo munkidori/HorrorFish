@@ -67,7 +67,7 @@ public class CorridorNode : Node
                 child.TopLeftAreaCorner,
                 child.BottomLeftAreaCorner
                 ) != -1
-            ).ToList();
+            ).OrderBy(child => child.BottomRightAreaCorner.x).ToList();
         if (possibleNeighboursInRightStructureList.Count <= 0)
         {
             rightStructure = structure2;
