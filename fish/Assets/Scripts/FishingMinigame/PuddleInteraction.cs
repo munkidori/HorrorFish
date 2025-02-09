@@ -12,6 +12,10 @@ public class PuddleInteraction : MonoBehaviour
     {
         if (promptText != null)
             promptText.gameObject.SetActive(false);
+            
+        // Add debug check for fishManager
+        if (fishManager == null)
+            Debug.LogError("FishManager is not assigned to PuddleInteraction!");
     }
 
     void Update()
@@ -25,15 +29,28 @@ public class PuddleInteraction : MonoBehaviour
 
                 if (fishingGame != null)
                 {
-                    Fish randomFish = fishManager.GetRandomFish(); 
+                    // Add debug logging
+                    if (fishManager == null)
+                    {
+                        Debug.LogError("FishManager is null when trying to get random fish!");
+                        return;
+                    }
+
+                    ItemData randomFish = fishManager.GetRandomFish();
+                    Debug.Log($"Selected fish: {(randomFish != null ? randomFish.itemName : "NULL")}");
+
+                    if (randomFish == null)
+                    {
+                        Debug.LogError("Selected fish is NULL in PuddleInteraction!");
+                        return;
+                    }
+
                     fishingGame.StartFishingGame(randomFish);
                 }
                 Destroy(gameObject);
             }
         }
     }
-
-
 
     private void OnTriggerEnter(Collider other)
     {
