@@ -123,24 +123,6 @@ public class FishingGame : MonoBehaviour
 
     private void AddFishToInventory()
     {
-        if (inventoryManager == null)
-        {
-            Debug.LogError("InventoryManager is not assigned to FishingGame!");
-            return;
-        }
-
-        if (currentFish == null)
-        {
-            Debug.LogError("Trying to add null fish to inventory!");
-            return;
-        }
-
-        if (itemPrefab == null)
-        {
-            Debug.LogError("Item prefab is not assigned to FishingGame!");
-            return;
-        }
-
         // Store the current selected grid
         var originalSelectedGrid = inventoryManager.SelectedItemGrid;
         
@@ -169,5 +151,20 @@ public class FishingGame : MonoBehaviour
 
         // Restore the original selected grid
         inventoryManager.SelectedItemGrid = originalSelectedGrid;
+    }
+
+    public void HandleGameOver()
+    {
+        if (gameObject.activeSelf && currentFish != null)
+        {
+            Debug.Log($"The {currentFish.itemName} escaped due to game over!");
+            EndFishingGame(false);
+
+            // Clear inventory when game is over
+            if (defaultInventoryGrid != null)
+            {
+                defaultInventoryGrid.ClearGrid();
+            }
+        }
     }
 }

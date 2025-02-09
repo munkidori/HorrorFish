@@ -9,6 +9,10 @@ public class ItemGrid : MonoBehaviour
     [SerializeField] int gridWidth = 10;
     [SerializeField] int gridHeight = 15;
 
+    [SerializeField] float showPosition = 1000f;  // X position when shown
+    [SerializeField] float hidePosition = 1600f;  // X position when hidden
+    private bool isShowing = false;
+
     RectTransform rectTransform;
     Vector2 positionOnTheGrid = new Vector2();
     Vector2Int tileGridPosition = new Vector2Int();
@@ -205,5 +209,35 @@ public class ItemGrid : MonoBehaviour
         if (x < 0 || y < 0 || x >= gridWidth || y >= gridHeight)
             return true;
         return inventoryItemSlot[x, y] != null;
+    }
+
+    public void ToggleInventory()
+    {
+        isShowing = !isShowing;
+        Vector2 anchoredPos = rectTransform.anchoredPosition;
+        anchoredPos.x = isShowing ? showPosition : hidePosition;
+        rectTransform.anchoredPosition = anchoredPos;
+    }
+
+    public void ClearGrid()
+    {
+        // Clear all slots
+        for (int x = 0; x < gridWidth; x++)
+        {
+            for (int y = 0; y < gridHeight; y++)
+            {
+                if (inventoryItemSlot[x, y] != null)
+                {
+                    Destroy(inventoryItemSlot[x, y].gameObject);
+                    inventoryItemSlot[x, y] = null;
+                }
+            }
+        }
+
+        // Reset position to hidden
+        isShowing = false;
+        Vector2 anchoredPos = rectTransform.anchoredPosition;
+        anchoredPos.x = hidePosition;
+        rectTransform.anchoredPosition = anchoredPos;
     }
 }
