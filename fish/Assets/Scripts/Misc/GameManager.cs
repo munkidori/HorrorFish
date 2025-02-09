@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
         hud.gameObject.SetActive(true);
         gameOver.gameObject.SetActive(false);
         timer.value = 1f;
-        player.transform.position = new Vector3(10, 0, 10);
+        player.transform.position = new Vector3(15, 0, 7);
         player.transform.rotation = Quaternion.Euler(0, 0, 0);
     }
 }

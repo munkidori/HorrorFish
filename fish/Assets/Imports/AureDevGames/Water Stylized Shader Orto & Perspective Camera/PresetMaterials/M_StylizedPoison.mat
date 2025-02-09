@@ -105,7 +105,7 @@ Material:
     - _FoamBlend: 0.09
     - _FresnelPower: 1
     - _GradientRefractionScale: 10
-    - _HorizonDistance: 200
+    - _HorizonDistance: 1
     - _IntersectionFoamBlend: 1.09
     - _IntersectionFoamCutoff: 1.06
     - _IntersectionFoamDepth: 2.43
@@ -155,11 +155,11 @@ Material:
     - _DeepColor: {r: 0, g: 0, b: 0, a: 1}
     - _FoamUVsOffset: {r: 1, g: 1, b: 0, a: 0}
     - _FresnelColor: {r: 2.670157, g: 2.670157, b: 2.670157, a: 0}
-    - _HorizonColor: {r: 0.06301003, g: 0.7454045, b: 0, a: 1}
+    - _HorizonColor: {r: 0.06301003, g: 0.7454045, b: 0, a: 0}
     - _IntersectionFoamColor: {r: 0.21822736, g: 3.9999995, b: 0, a: 1}
     - _PositionRipples: {r: 0, g: 0, b: 0, a: 0}
     - _SecondaryFoamColor: {r: 0.18735576, g: 1, b: 0, a: 0}
-    - _ShallowColor: {r: 0.41134635, g: 4.945712, b: 0, a: 1}
+    - _ShallowColor: {r: 0.13741109, g: 1.6403463, b: 0, a: 1}
     - _SpecularColor: {r: 0, g: 0, b: 0, a: 0.31764707}
     - _SurfaceFoamColor: {r: 1.3720132, g: 9.46504, b: 0, a: 0.21176471}
     - _TopColor: {r: 0, g: 0.17848217, b: 0.5622641, a: 0.44705883}

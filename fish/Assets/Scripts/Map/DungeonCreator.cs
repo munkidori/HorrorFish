@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.Rendering.DebugUI.Table;
 
 public class DungeonCreator : MonoBehaviour
 {
@@ -18,7 +17,8 @@ public class DungeonCreator : MonoBehaviour
     [Range(0, 2)]
     public int roomOffset;
     public GameObject wallVertical, wallHorizontal;
-    List<Vector3Int> possibleWallHorizontalPosition, possibleWallVerticalPosition;
+    List<Vector3Int> possibleWallHorizontalPosition;
+    List<Vector3Int> possibleWallVerticalPosition;
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +26,7 @@ public class DungeonCreator : MonoBehaviour
         CreateDungeon();
     }
 
-    private void CreateDungeon()
+    public void CreateDungeon()
     {
         DugeonGenerator generator = new DugeonGenerator(dungeonWidth, dungeonLength);
         var listOfRooms = generator.CalculateDungeon(maxIterations,
@@ -36,25 +36,27 @@ public class DungeonCreator : MonoBehaviour
             roomTopCornerMidifier,
             roomOffset,
             corridorWidth);
-
         GameObject wallParent = new GameObject("WallParent");
         wallParent.transform.parent = transform;
         possibleWallHorizontalPosition = new List<Vector3Int>();
         possibleWallVerticalPosition = new List<Vector3Int>();
-
         for (int i = 0; i < listOfRooms.Count; i++)
+        {
             CreateMesh(listOfRooms[i].BottomLeftAreaCorner, listOfRooms[i].TopRightAreaCorner);
-       
+        }
         CreateWalls(wallParent);
     }
 
     private void CreateWalls(GameObject wallParent)
     {
         foreach (var wallPosition in possibleWallHorizontalPosition)
+        {
             CreateWall(wallParent, wallPosition, wallHorizontal);
-
+        }
         foreach (var wallPosition in possibleWallVerticalPosition)
+        {
             CreateWall(wallParent, wallPosition, wallVertical);
+        }
     }
 
     private void CreateWall(GameObject wallParent, Vector3Int wallPosition, GameObject wallPrefab)
@@ -90,7 +92,7 @@ public class DungeonCreator : MonoBehaviour
             2,
             2,
             1,
-            3   // moet in deze volgorde!
+            3
         };
         Mesh mesh = new Mesh();
         mesh.vertices = vertices;
@@ -103,34 +105,26 @@ public class DungeonCreator : MonoBehaviour
         dungeonFloor.transform.localScale = Vector3.one;
         dungeonFloor.GetComponent<MeshFilter>().mesh = mesh;
         dungeonFloor.GetComponent<MeshRenderer>().material = material;
-        dungeonFloor.tag = "Terrain";
         dungeonFloor.transform.parent = transform;
 
-        // onderste muren tekenen
-        for (int row = (int)bottomLeftV.x; row <= (int)bottomRightV.x; row++)
+        for (int row = (int)bottomLeftV.x; row < (int)bottomRightV.x; row++)
         {
-            var wallPosition = new Vector3(row, 0, bottomLeftV.z);
+            var wallPosition = new Vector3(row + 0.5f, 0, bottomLeftV.z);
             AddWallPositionToList(wallPosition, possibleWallHorizontalPosition);
         }
-
-        // bovenste muren tekenen
-        for (int row = (int)topLeftV.x; row <= (int)topRightV.x; row++)
+        for (int row = (int)topLeftV.x; row < (int)topRightCorner.x; row++)
         {
-            var wallPosition = new Vector3(row, 0, topRightV.z);
+            var wallPosition = new Vector3(row + 0.5f, 0, topRightV.z);
             AddWallPositionToList(wallPosition, possibleWallHorizontalPosition);
         }
-
-        // linker muren tekenen
-        for (int column = (int)bottomLeftV.z; column <= (int)topLeftV.z; column++)
+        for (int col = (int)bottomLeftV.z; col < (int)topLeftV.z; col++)
         {
-            var wallPosition = new Vector3(bottomLeftV.x, 0, column);
+            var wallPosition = new Vector3(bottomLeftV.x, 0, col + 0.5f);
             AddWallPositionToList(wallPosition, possibleWallVerticalPosition);
         }
-
-        // rechter muren tekenen
-        for (int column = (int)bottomRightV.z; column <= (int)topRightV.z; column++)
+        for (int col = (int)bottomRightV.z; col < (int)topRightV.z; col++)
         {
-            var wallPosition = new Vector3(bottomRightV.x, 0, column);
+            var wallPosition = new Vector3(bottomRightV.x, 0, col + 0.5f);
             AddWallPositionToList(wallPosition, possibleWallVerticalPosition);
         }
     }
@@ -138,7 +132,6 @@ public class DungeonCreator : MonoBehaviour
     private void AddWallPositionToList(Vector3 wallPosition, List<Vector3Int> wallList)
     {
         Vector3Int point = Vector3Int.CeilToInt(wallPosition);
-
         if (wallList.Contains(point))
             wallList.Remove(point);
         else
