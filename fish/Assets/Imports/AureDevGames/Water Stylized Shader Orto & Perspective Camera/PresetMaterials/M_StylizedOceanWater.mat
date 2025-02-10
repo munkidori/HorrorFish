@@ -155,7 +155,7 @@ Material:
     - _DeepColor: {r: 0, g: 0, b: 0, a: 1}
     - _FoamUVsOffset: {r: 1, g: 1, b: 0, a: 0}
     - _FresnelColor: {r: 2.670157, g: 2.670157, b: 2.670157, a: 0}
-    - _HorizonColor: {r: 0, g: 0, b: 0, a: 1}
+    - _HorizonColor: {r: 7.3772106, g: 3.6607668, b: 6.6577153, a: 1}
     - _IntersectionFoamColor: {r: 1.1486984, g: 1.1486984, b: 1.1486984, a: 1}
     - _PositionRipples: {r: 0, g: 0, b: 0, a: 0}
     - _SecondaryFoamColor: {r: 0, g: 0.002903101, b: 0.19245279, a: 0.40784314}
