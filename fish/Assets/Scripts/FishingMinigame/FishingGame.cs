@@ -9,26 +9,23 @@ public class FishingGame : MonoBehaviour
     private ItemData currentFish;
     public InventoryManager inventoryManager;
     [SerializeField] private FishingStruggle fishingStruggle;
-    [SerializeField] private GameObject itemPrefab;  // Assign your inventory item prefab in inspector
-    [SerializeField] private Transform canvasTransform;  // Assign your UI canvas transform
-    [SerializeField] private ItemGrid defaultInventoryGrid; // Assign this in inspector
+    [SerializeField] private GameObject itemPrefab; 
+    [SerializeField] private Transform canvasTransform;  
+    [SerializeField] private ItemGrid defaultInventoryGrid; 
 
     void Start()
     {
         if (fishingStruggle == null)
         {
             fishingStruggle = FindFirstObjectByType<FishingStruggle>();
+
             if (fishingStruggle == null)
-            {
                 Debug.LogError("FishingStruggle is NOT found in the scene!");
-            }
         }
 
-        // Initialize progress to middle
         if (progress != null)
-        {
             progress.value = 0.5f;
-        }
+        
     }
 
     private void Update()
@@ -58,11 +55,9 @@ public class FishingGame : MonoBehaviour
         currentFish = selectedFish;
         Debug.Log($"Fishing for: {currentFish.itemName}");
 
-        // Initialize UI elements
-        progress.value = 0.5f;  // Start in the middle
+        progress.value = 0.5f; 
         scrollbar.value = 0f;
 
-        // Set up the fish
         SetFish(currentFish);
 
         gameObject.SetActive(true);
@@ -70,48 +65,20 @@ public class FishingGame : MonoBehaviour
 
     public void SetFish(ItemData fish)
     {
-        if (fish == null)
-        {
-            Debug.LogError("Selected fish is NULL in FishingGame.SetFish!");
-            return;
-        }
-
         currentFish = fish;
         var fishingStruggle = GetComponentInChildren<FishingStruggle>();
-        if (fishingStruggle == null)
-        {
-            Debug.LogError($"FishingStruggle component not found in children of {gameObject.name}! Hierarchy: {GetGameObjectPath(gameObject)}");
-            return;
-        }
-
         Debug.Log($"Found FishingStruggle component on {fishingStruggle.gameObject.name}");
         fishingStruggle.GetFish(currentFish);
-    }
-
-    private string GetGameObjectPath(GameObject obj)
-    {
-        string path = obj.name;
-        Transform parent = obj.transform.parent;
-        while (parent != null)
-        {
-            path = parent.name + "/" + path;
-            parent = parent.parent;
-        }
-        return path;
     }
 
     private void EndFishingGame(bool caughtFish)
     {
         var fishingReel = GetComponentInChildren<FishingReel>();
         if (fishingReel != null)
-        {
             fishingReel.isClicked = false;
-        }
 
         if (caughtFish && inventoryManager != null)
-        {
             AddFishToInventory();
-        }
 
         // Reset UI
         progress.value = 0.5f;
@@ -128,9 +95,7 @@ public class FishingGame : MonoBehaviour
         
         // Force select our default grid
         if (defaultInventoryGrid != null)
-        {
             inventoryManager.SelectedItemGrid = defaultInventoryGrid;
-        }
 
         GameObject itemObject = Instantiate(itemPrefab, canvasTransform);
         InventoryItem item = itemObject.GetComponent<InventoryItem>();
@@ -138,9 +103,7 @@ public class FishingGame : MonoBehaviour
         if (item != null)
         {
             item.Set(currentFish);
-            Debug.Log($"Created inventory item for {currentFish.itemName}");
-            
-            // Use InsertItem instead of direct placement
+            Debug.Log($"Created inventory item for {currentFish.itemName}");            
             inventoryManager.InsertItem(item);
         }
         else
@@ -149,7 +112,6 @@ public class FishingGame : MonoBehaviour
             Destroy(itemObject);
         }
 
-        // Restore the original selected grid
         inventoryManager.SelectedItemGrid = originalSelectedGrid;
     }
 

@@ -4,19 +4,6 @@ public class FishManager : MonoBehaviour
 {
     [SerializeField] ItemData[] fishList;
 
-    private void Start()
-    {
-        // Add debug logging
-        if (fishList == null || fishList.Length == 0)
-        {
-            Debug.LogError("Fish list is not initialized in FishManager!");
-        }
-        else
-        {
-            Debug.Log($"FishManager initialized with {fishList.Length} fish");
-        }
-    }
-
     public ItemData GetRandomFish()
     {
         if (fishList != null && fishList.Length > 0)

@@ -10,7 +10,7 @@ public class ItemGrid : MonoBehaviour
     [SerializeField] int gridHeight = 15;
 
     [SerializeField] float showPosition = 1000f;  // X position when shown
-    [SerializeField] float hidePosition = 1600f;  // X position when hidden
+    [SerializeField] float hidePosition = 60000f;  // X position when hidden
     private bool isShowing = false;
 
     RectTransform rectTransform;
@@ -44,7 +44,7 @@ public class ItemGrid : MonoBehaviour
         return tileGridPosition;
     }
 
-    // overload method met het te plaatse item reference
+    // overload method met het te plaatse item reference (wanneer je een item wilt verplaatsen met een andere)
     public bool PlaceItem(InventoryItem item, int posX, int posY, ref InventoryItem overlapItem)
     {
         if (posX < 0 || posY < 0 || posX + item.Width > gridWidth || posY + item.Height > gridHeight)
@@ -108,6 +108,17 @@ public class ItemGrid : MonoBehaviour
         CleanGridReference(toReturn);
 
         return toReturn;
+    }
+
+    public void RemoveItem(InventoryItem item)
+    {
+        for (int i = 0; i < item.Width; i++)
+        {
+            for (int j = 0; j < item.Height; j++)
+            {
+                Destroy(inventoryItemSlot[item.onGridPositionX + i, item.onGridPositionY + j]);
+            }
+        }
     }
 
     private void CleanGridReference(InventoryItem item)
@@ -221,7 +232,6 @@ public class ItemGrid : MonoBehaviour
 
     public void ClearGrid()
     {
-        // Clear all slots
         for (int x = 0; x < gridWidth; x++)
         {
             for (int y = 0; y < gridHeight; y++)
@@ -234,7 +244,6 @@ public class ItemGrid : MonoBehaviour
             }
         }
 
-        // Reset position to hidden
         isShowing = false;
         Vector2 anchoredPos = rectTransform.anchoredPosition;
         anchoredPos.x = hidePosition;

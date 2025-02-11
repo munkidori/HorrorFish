@@ -38,10 +38,12 @@ public class InventoryManager : MonoBehaviour
     {
         DragItem();
 
-        if (Input.GetMouseButtonDown(1))
-        {
+        if (Input.GetKeyDown(KeyCode.R))
             RotateItem();
-        }
+
+        if (Input.GetMouseButtonDown(1) && selectedItem == null)
+            DiscardItem();
+        
 
         if (selectedItemGrid == null)
         {
@@ -52,9 +54,8 @@ public class InventoryManager : MonoBehaviour
         HandleHighlight();
 
         if (Input.GetMouseButtonDown(0))
-        {
             ItemInteraction();
-        }
+        
     }
 
     private void RotateItem()
@@ -72,9 +73,7 @@ public class InventoryManager : MonoBehaviour
         if (selectedItem == null)
             GrabItem(tileGridPosition);
         else
-        {
             PlaceItem(tileGridPosition);
-        }
     }
 
     private Vector2Int GetTileGridPosition()
@@ -155,31 +154,30 @@ public class InventoryManager : MonoBehaviour
     public void InsertItem(InventoryItem itemToInsert)
     {
         if (SelectedItemGrid == null)
-        {
-            Debug.LogError("No grid selected for item insertion!");
             return;
-        }
-
+        
         Vector2Int? posOnGrid = SelectedItemGrid.FindSpaceForItem(itemToInsert);
 
         if (posOnGrid == null)
         {
             Debug.LogWarning($"No space found for {itemToInsert.itemData.itemName} in inventory!");
+            // ipv Destroy, moet ik hier een ReplaceItem() method moeten roepen om een 2de grid te openen met de item
             Destroy(itemToInsert.gameObject);
             return;
         }
 
         InventoryItem overlapItem = null;
         bool placed = SelectedItemGrid.PlaceItem(itemToInsert, posOnGrid.Value.x, posOnGrid.Value.y, ref overlapItem);
-        
-        if (placed)
+    }
+
+    public void DiscardItem()
+    {
+        Vector2Int tileGridPosition = GetTileGridPosition();
+        InventoryItem itemAtPosition = selectedItemGrid.GetItem(tileGridPosition.x, tileGridPosition.y);
+        if (itemAtPosition != null)
         {
-            Debug.Log($"Successfully placed {itemToInsert.itemData.itemName} at {posOnGrid.Value}");
-        }
-        else
-        {
-            Debug.LogWarning($"Failed to place {itemToInsert.itemData.itemName} in inventory!");
-            Destroy(itemToInsert.gameObject);
+            selectedItemGrid.RemoveItem(itemAtPosition); // New method to properly remove item
+            Destroy(itemAtPosition.gameObject);
         }
     }
 }
