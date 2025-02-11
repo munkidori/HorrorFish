@@ -1,9 +1,5 @@
-using System;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
-using Random = UnityEngine.Random;
+using UnityEngine.UI;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -29,6 +25,8 @@ public class InventoryManager : MonoBehaviour
     InventoryItem itemToHighlight;
     Vector2Int oldPosition;
 
+    public Slider timer;
+
     private void Awake()
     {
         inventoryHighlight = GetComponent<InventoryHighlight>();
@@ -42,7 +40,7 @@ public class InventoryManager : MonoBehaviour
             RotateItem();
 
         if (Input.GetMouseButtonDown(1) && selectedItem == null)
-            DiscardItem();
+            EatItem();
         
 
         if (selectedItemGrid == null)
@@ -174,9 +172,25 @@ public class InventoryManager : MonoBehaviour
     {
         Vector2Int tileGridPosition = GetTileGridPosition();
         InventoryItem itemAtPosition = selectedItemGrid.GetItem(tileGridPosition.x, tileGridPosition.y);
+
+        // check de tile waarover ik hover
         if (itemAtPosition != null)
         {
-            selectedItemGrid.RemoveItem(itemAtPosition); // New method to properly remove item
+            selectedItemGrid.RemoveItem(itemAtPosition);
+            Destroy(itemAtPosition.gameObject);
+        }
+    }
+
+    public void EatItem()
+    {
+        Vector2Int tileGridPosition = GetTileGridPosition();
+        InventoryItem itemAtPosition = selectedItemGrid.GetItem(tileGridPosition.x, tileGridPosition.y);
+
+        // check de tile waarover ik hover
+        if (itemAtPosition != null)
+        {
+            timer.value += itemAtPosition.itemData.healAmount;
+            selectedItemGrid.RemoveItem(itemAtPosition);
             Destroy(itemAtPosition.gameObject);
         }
     }
