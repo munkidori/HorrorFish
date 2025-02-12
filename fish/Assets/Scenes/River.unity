@@ -4358,7 +4358,7 @@ MonoBehaviour:
   roomLengthMin: 25
   maxIterations: 20
   corridorWidth: 5
-  material: {fileID: 2100000, guid: a8ed554223410d34bb35b2957fe24761, type: 2}
+  material: {fileID: 2100000, guid: f54e805b5b7082046b42fdacda615868, type: 2}
   roomBottomCornerModifier: 0.1
   roomTopCornerMidifier: 0.9
   roomOffset: 1
@@ -6383,7 +6383,7 @@ PrefabInstance:
     - target: {fileID: 4314823448749235617, guid: 4cafde94f32383d48b0634fb37894205, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 3f74bc93d73cfc741aa7ea44fa6f1955, type: 2}
+      objectReference: {fileID: 2100000, guid: 1094958f291b64d40a5fc6dfb2498b62, type: 2}
     - target: {fileID: 8998971478710028592, guid: 4cafde94f32383d48b0634fb37894205, type: 3}
       propertyPath: fishManager
       value: 
