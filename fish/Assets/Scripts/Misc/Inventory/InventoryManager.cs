@@ -39,12 +39,15 @@ public class InventoryManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R))
             RotateItem();
 
+        // als muis buiten de grid is EN je hebt een item vast en ...
         if (selectedItemGrid == null && selectedItem != null && Input.GetMouseButtonDown(0))
             DiscardItem();
 
+        // als je geen item vast hebt
         if (Input.GetMouseButtonDown(1) && selectedItem == null)
             EatItem();
 
+        // toon highlighter enkel wnr je in grid hovert
         if (selectedItemGrid == null)
         {
             inventoryHighlight.Show(false);
