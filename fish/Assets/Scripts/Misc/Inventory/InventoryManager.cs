@@ -39,9 +39,11 @@ public class InventoryManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R))
             RotateItem();
 
+        if (selectedItemGrid == null && selectedItem != null && Input.GetMouseButtonDown(0))
+            DiscardItem();
+
         if (Input.GetMouseButtonDown(1) && selectedItem == null)
             EatItem();
-        
 
         if (selectedItemGrid == null)
         {
@@ -52,8 +54,7 @@ public class InventoryManager : MonoBehaviour
         HandleHighlight();
 
         if (Input.GetMouseButtonDown(0))
-            ItemInteraction();
-        
+            GrabAndDropItem();      
     }
 
     private void RotateItem()
@@ -64,7 +65,7 @@ public class InventoryManager : MonoBehaviour
         selectedItem.Rotate();
     }
 
-    private void ItemInteraction()
+    private void GrabAndDropItem()
     {
         Vector2Int tileGridPosition = GetTileGridPosition();
 
@@ -72,6 +73,7 @@ public class InventoryManager : MonoBehaviour
             GrabItem(tileGridPosition);
         else
             PlaceItem(tileGridPosition);
+        
     }
 
     private Vector2Int GetTileGridPosition()
@@ -170,14 +172,10 @@ public class InventoryManager : MonoBehaviour
 
     public void DiscardItem()
     {
-        Vector2Int tileGridPosition = GetTileGridPosition();
-        InventoryItem itemAtPosition = selectedItemGrid.GetItem(tileGridPosition.x, tileGridPosition.y);
-
-        // check de tile waarover ik hover
-        if (itemAtPosition != null)
+        if (selectedItem != null)
         {
-            selectedItemGrid.RemoveItem(itemAtPosition);
-            Destroy(itemAtPosition.gameObject);
+            Destroy(selectedItem.gameObject);
+            selectedItem = null;
         }
     }
 
