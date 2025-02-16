@@ -1,6 +1,6 @@
 Using pre-set license
 Built from '6000.0/release' branch; Version is '6000.0.35f1 (9a3bc604008a) revision 10107846'; Using compiler version '193933523'; Build Type 'Release'
-OS: 'Windows 11  (10.0.26100) 64bit ProfessionalWorkstation' Language: 'nl' Physical Memory: 32691 MB
+OS: 'Windows 11  (10.0.22631) 64bit Core' Language: 'en' Physical Memory: 16169 MB
 BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
 
 COMMAND LINE ARGUMENTS:
@@ -11,19 +11,19 @@ C:\Program Files\Unity\Hub\Editor\6000.0.35f1\Editor\Unity.exe
 -name
 AssetImportWorker1
 -projectPath
-E:/Unity/HorrorFish/fish
+C:/Users/niels/MoonKey/HorrorFish/fish
 -logFile
 Logs/AssetImportWorker1.log
 -srvPort
-60054
+57649
 -job-worker-count
-7
+5
 -background-job-worker-count
 8
 -gc-helper-count
 1
-Successfully changed project path to: E:/Unity/HorrorFish/fish
-E:/Unity/HorrorFish/fish
+Successfully changed project path to: C:/Users/niels/MoonKey/HorrorFish/fish
+C:/Users/niels/MoonKey/HorrorFish/fish
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
     "memorysetup-bucket-allocator-granularity=16"
     "memorysetup-bucket-allocator-bucket-count=8"
@@ -59,13 +59,13 @@ E:/Unity/HorrorFish/fish
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [37248]  Target information:
+Player connection [25468]  Target information:
 
-Player connection [37248]  * "[IP] 192.168.0.178 [Port] 0 [Flags] 2 [Guid] 744329115 [EditorId] 744329115 [Version] 1048832 [Id] WindowsEditor(7,Home) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+Player connection [25468]  * "[IP] 192.168.1.162 [Port] 0 [Flags] 2 [Guid] 3751630536 [EditorId] 3751630536 [Version] 1048832 [Id] WindowsEditor(7,Laptop_Niels) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
 
-Player connection [37248] Host joined multi-casting on [225.0.0.222:54997]...
-Player connection [37248] Host joined alternative multi-casting on [225.0.0.222:34997]...
-JobSystem: Creating JobQueue using job-worker-count value 7
+Player connection [25468] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [25468] Host joined alternative multi-casting on [225.0.0.222:34997]...
+JobSystem: Creating JobQueue using job-worker-count value 5
 Input System module state changed to: Initialized.
 [Physics::Module] Initialized fallback backend.
 [Physics::Module] Id: 0xdecafbad
@@ -76,61 +76,59 @@ Library Redirect Path: Library/
 [Physics::Module] SDK Version: 4.1.2
 [Physics::Module] Integration Version: 1.0.0
 [Physics::Module] Threading Mode: Multi-Threaded
-Refreshing native plugins compatible for Editor in 1.73 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 246.68 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 6000.0.35f1 (9a3bc604008a)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/6000.0.35f1/Editor/Data/Resources/UnitySubsystems
-[Subsystems] Discovering subsystems at path E:/Unity/HorrorFish/fish/Assets
+[Subsystems] Discovering subsystems at path C:/Users/niels/MoonKey/HorrorFish/fish/Assets
 GfxDevice: creating device client; kGfxThreadingModeNonThreaded
 Direct3D:
     Version:  Direct3D 11.0 [level 11.1]
-    Renderer: NVIDIA GeForce RTX 4060 Ti (ID=0x2803)
+    Renderer: NVIDIA GeForce RTX 2070 (ID=0x1f14)
     Vendor:   NVIDIA
-    VRAM:     7949 MB
+    VRAM:     8006 MB
     Driver:   32.0.15.6636
 Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/6000.0.35f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/6000.0.35f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/6000.0.35f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56968
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56280
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
-Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.0.35f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.0.35f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.003611 seconds.
-- Loaded All Assemblies, in  0.387 seconds
+Registered in 0.008356 seconds.
+- Loaded All Assemblies, in  0.956 seconds
 Native extension for WindowsStandalone target not found
-Native extension for WebGL target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.276 seconds
-Domain Reload Profiling: 661ms
-	BeginReloadAssembly (122ms)
+- Finished resetting the current domain, in  0.760 seconds
+Domain Reload Profiling: 1711ms
+	BeginReloadAssembly (380ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
 		CreateAndSetChildDomain (1ms)
-	RebuildCommonClasses (47ms)
-	RebuildNativeTypeToScriptingClass (14ms)
-	initialDomainReloadingComplete (53ms)
-	LoadAllAssembliesAndSetupDomain (149ms)
-		LoadAssemblies (118ms)
+	RebuildCommonClasses (97ms)
+	RebuildNativeTypeToScriptingClass (34ms)
+	initialDomainReloadingComplete (126ms)
+	LoadAllAssembliesAndSetupDomain (313ms)
+		LoadAssemblies (373ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (146ms)
-			TypeCache.Refresh (144ms)
-				TypeCache.ScanAssembly (132ms)
+		AnalyzeDomain (308ms)
+			TypeCache.Refresh (305ms)
+				TypeCache.ScanAssembly (281ms)
 			BuildScriptInfoCaches (0ms)
-			ResolveRequiredComponents (0ms)
-	FinalizeReload (277ms)
+			ResolveRequiredComponents (1ms)
+	FinalizeReload (761ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (250ms)
+		SetupLoadedEditorAssemblies (663ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (24ms)
-			SetLoadedEditorAssemblies (4ms)
-			BeforeProcessingInitializeOnLoad (46ms)
-			ProcessInitializeOnLoadAttributes (127ms)
-			ProcessInitializeOnLoadMethodAttributes (48ms)
+			InitializePlatformSupportModulesInManaged (60ms)
+			SetLoadedEditorAssemblies (10ms)
+			BeforeProcessingInitializeOnLoad (121ms)
+			ProcessInitializeOnLoadAttributes (336ms)
+			ProcessInitializeOnLoadMethodAttributes (137ms)
 			AfterProcessingInitializeOnLoad (0ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
@@ -139,49 +137,964 @@ Domain Reload Profiling: 661ms
 Worker process is ready to serve import requests
 Import Worker Mode flag is 0x00
 Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  0.833 seconds
-Refreshing native plugins compatible for Editor in 1.35 ms, found 4 plugins.
+- Loaded All Assemblies, in  2.479 seconds
+Refreshing native plugins compatible for Editor in 3.64 ms, found 4 plugins.
 Native extension for WindowsStandalone target not found
-Native extension for WebGL target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.814 seconds
-Domain Reload Profiling: 1642ms
-	BeginReloadAssembly (191ms)
+- Finished resetting the current domain, in  2.371 seconds
+Domain Reload Profiling: 4834ms
+	BeginReloadAssembly (402ms)
 		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (8ms)
+		DisableScriptedObjects (14ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (33ms)
-	RebuildCommonClasses (41ms)
-	RebuildNativeTypeToScriptingClass (14ms)
-	initialDomainReloadingComplete (41ms)
-	LoadAllAssembliesAndSetupDomain (541ms)
-		LoadAssemblies (390ms)
+		CreateAndSetChildDomain (61ms)
+	RebuildCommonClasses (107ms)
+	RebuildNativeTypeToScriptingClass (36ms)
+	initialDomainReloadingComplete (110ms)
+	LoadAllAssembliesAndSetupDomain (1807ms)
+		LoadAssemblies (1274ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (268ms)
-			TypeCache.Refresh (201ms)
-				TypeCache.ScanAssembly (186ms)
-			BuildScriptInfoCaches (51ms)
-			ResolveRequiredComponents (13ms)
-	FinalizeReload (815ms)
+		AnalyzeDomain (785ms)
+			TypeCache.Refresh (601ms)
+				TypeCache.ScanAssembly (560ms)
+			BuildScriptInfoCaches (147ms)
+			ResolveRequiredComponents (29ms)
+	FinalizeReload (2371ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (659ms)
+		SetupLoadedEditorAssemblies (1957ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (4ms)
+			SetLoadedEditorAssemblies (16ms)
+			BeforeProcessingInitializeOnLoad (530ms)
+			ProcessInitializeOnLoadAttributes (1160ms)
+			ProcessInitializeOnLoadMethodAttributes (235ms)
+			AfterProcessingInitializeOnLoad (13ms)
+			EditorAssembliesLoaded (1ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (11ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
+Refreshing native plugins compatible for Editor in 4.82 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 228 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 6622 unused Assets / (2.1 MB). Loaded Objects now: 7349.
+Memory consumption went from 179.7 MB to 177.6 MB.
+Total: 32.444600 ms (FindLiveObjects: 1.858400 ms CreateObjectMapping: 3.086700 ms MarkObjects: 20.008200 ms  DeleteObjects: 7.489300 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 329666.785537 seconds.
+  path: Assets/InputSystem_Actions.inputactions
+  artifactKey: Guid(052faaac586de48259a63d0c4782560b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InputSystem_Actions.inputactions using Guid(052faaac586de48259a63d0c4782560b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '15be5ba4d5b2b3ffcc56475d7901d8b3') in 0.0944539 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 19
+
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  1.446 seconds
+Refreshing native plugins compatible for Editor in 3.09 ms, found 4 plugins.
+Native extension for WindowsStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.801 seconds
+Domain Reload Profiling: 3243ms
+	BeginReloadAssembly (418ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (32ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (116ms)
+	RebuildCommonClasses (71ms)
+	RebuildNativeTypeToScriptingClass (20ms)
+	initialDomainReloadingComplete (47ms)
+	LoadAllAssembliesAndSetupDomain (885ms)
+		LoadAssemblies (752ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (326ms)
+			TypeCache.Refresh (11ms)
+				TypeCache.ScanAssembly (0ms)
+			BuildScriptInfoCaches (292ms)
+			ResolveRequiredComponents (18ms)
+	FinalizeReload (1802ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (1386ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (4ms)
+			SetLoadedEditorAssemblies (13ms)
+			BeforeProcessingInitializeOnLoad (412ms)
+			ProcessInitializeOnLoadAttributes (822ms)
+			ProcessInitializeOnLoadMethodAttributes (124ms)
+			AfterProcessingInitializeOnLoad (10ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (26ms)
+Refreshing native plugins compatible for Editor in 3.34 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 13 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 6620 unused Assets / (4.3 MB). Loaded Objects now: 7355.
+Memory consumption went from 146.1 MB to 141.8 MB.
+Total: 14.296800 ms (FindLiveObjects: 1.105800 ms CreateObjectMapping: 1.983600 ms MarkObjects: 7.294500 ms  DeleteObjects: 3.910900 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  1.300 seconds
+Refreshing native plugins compatible for Editor in 2.81 ms, found 4 plugins.
+Native extension for WindowsStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.671 seconds
+Domain Reload Profiling: 2967ms
+	BeginReloadAssembly (351ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (25ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (84ms)
+	RebuildCommonClasses (65ms)
+	RebuildNativeTypeToScriptingClass (21ms)
+	initialDomainReloadingComplete (41ms)
+	LoadAllAssembliesAndSetupDomain (818ms)
+		LoadAssemblies (666ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (327ms)
+			TypeCache.Refresh (11ms)
+				TypeCache.ScanAssembly (0ms)
+			BuildScriptInfoCaches (287ms)
+			ResolveRequiredComponents (22ms)
+	FinalizeReload (1672ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (1321ms)
 			LogAssemblyErrors (0ms)
 			InitializePlatformSupportModulesInManaged (3ms)
-			SetLoadedEditorAssemblies (4ms)
-			BeforeProcessingInitializeOnLoad (123ms)
-			ProcessInitializeOnLoadAttributes (422ms)
-			ProcessInitializeOnLoadMethodAttributes (98ms)
+			SetLoadedEditorAssemblies (13ms)
+			BeforeProcessingInitializeOnLoad (365ms)
+			ProcessInitializeOnLoadAttributes (814ms)
+			ProcessInitializeOnLoadMethodAttributes (117ms)
+			AfterProcessingInitializeOnLoad (9ms)
+			EditorAssembliesLoaded (1ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (26ms)
+Refreshing native plugins compatible for Editor in 3.44 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 13 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 6620 unused Assets / (4.3 MB). Loaded Objects now: 7357.
+Memory consumption went from 146.1 MB to 141.8 MB.
+Total: 13.949300 ms (FindLiveObjects: 1.002600 ms CreateObjectMapping: 1.842900 ms MarkObjects: 7.163000 ms  DeleteObjects: 3.939000 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  1.291 seconds
+Refreshing native plugins compatible for Editor in 3.90 ms, found 4 plugins.
+Native extension for WindowsStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.529 seconds
+Domain Reload Profiling: 2815ms
+	BeginReloadAssembly (331ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (25ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (78ms)
+	RebuildCommonClasses (59ms)
+	RebuildNativeTypeToScriptingClass (20ms)
+	initialDomainReloadingComplete (48ms)
+	LoadAllAssembliesAndSetupDomain (828ms)
+		LoadAssemblies (657ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (335ms)
+			TypeCache.Refresh (13ms)
+				TypeCache.ScanAssembly (0ms)
+			BuildScriptInfoCaches (299ms)
+			ResolveRequiredComponents (18ms)
+	FinalizeReload (1530ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (1190ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (4ms)
+			SetLoadedEditorAssemblies (11ms)
+			BeforeProcessingInitializeOnLoad (337ms)
+			ProcessInitializeOnLoadAttributes (731ms)
+			ProcessInitializeOnLoadMethodAttributes (99ms)
+			AfterProcessingInitializeOnLoad (8ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (22ms)
+Refreshing native plugins compatible for Editor in 3.28 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 13 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 6620 unused Assets / (5.7 MB). Loaded Objects now: 7359.
+Memory consumption went from 146.1 MB to 140.3 MB.
+Total: 14.039500 ms (FindLiveObjects: 1.099700 ms CreateObjectMapping: 1.526400 ms MarkObjects: 6.181700 ms  DeleteObjects: 5.230100 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  1.183 seconds
+Refreshing native plugins compatible for Editor in 2.62 ms, found 4 plugins.
+Native extension for WindowsStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.534 seconds
+Domain Reload Profiling: 2712ms
+	BeginReloadAssembly (307ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (23ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (65ms)
+	RebuildCommonClasses (57ms)
+	RebuildNativeTypeToScriptingClass (20ms)
+	initialDomainReloadingComplete (40ms)
+	LoadAllAssembliesAndSetupDomain (753ms)
+		LoadAssemblies (612ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (300ms)
+			TypeCache.Refresh (10ms)
+				TypeCache.ScanAssembly (0ms)
+			BuildScriptInfoCaches (269ms)
+			ResolveRequiredComponents (17ms)
+	FinalizeReload (1535ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (1218ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (3ms)
+			SetLoadedEditorAssemblies (13ms)
+			BeforeProcessingInitializeOnLoad (315ms)
+			ProcessInitializeOnLoadAttributes (771ms)
+			ProcessInitializeOnLoadMethodAttributes (107ms)
 			AfterProcessingInitializeOnLoad (9ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (9ms)
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.02 seconds
-Refreshing native plugins compatible for Editor in 1.10 ms, found 4 plugins.
+		AwakeInstancesAfterBackupRestoration (27ms)
+Refreshing native plugins compatible for Editor in 2.89 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 229 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 6635 unused Assets / (5.9 MB). Loaded Objects now: 7347.
-Memory consumption went from 181.8 MB to 175.9 MB.
-Total: 11.989100 ms (FindLiveObjects: 1.332300 ms CreateObjectMapping: 0.370500 ms MarkObjects: 7.579600 ms  DeleteObjects: 2.706000 ms)
+Unloading 13 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 6620 unused Assets / (4.8 MB). Loaded Objects now: 7361.
+Memory consumption went from 146.1 MB to 141.3 MB.
+Total: 13.168200 ms (FindLiveObjects: 0.934100 ms CreateObjectMapping: 1.496900 ms MarkObjects: 6.521700 ms  DeleteObjects: 4.213600 ms)
 
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 3746.877876 seconds.
+  path: Assets/New Terrain.asset
+  artifactKey: Guid(1c4e3a2be1f09d046872d9684a364c2a) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/New Terrain.asset using Guid(1c4e3a2be1f09d046872d9684a364c2a) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'afda3290a21cbb115517c0809399f50e') in 0.3652736 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Outline.mat
+  artifactKey: Guid(79459efec17a4d00a321bdcc27bbc385) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Outline.mat using Guid(79459efec17a4d00a321bdcc27bbc385) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '47119830160dc2eebc3a4c13cb933c5f') in 0.0726023 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Scripts/Misc/Inventory/InventoryManager.cs
+  artifactKey: Guid(4e4fce4362fd01e47b11b3b13d90af07) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Scripts/Misc/Inventory/InventoryManager.cs using Guid(4e4fce4362fd01e47b11b3b13d90af07) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '52030ba555098d48c3225ba8d7eb3cde') in 0.0254885 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Scripts/UI/TimeManager.cs
+  artifactKey: Guid(72a3ed46ae10914449f60047e04c0e5e) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Scripts/UI/TimeManager.cs using Guid(72a3ed46ae10914449f60047e04c0e5e) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '37f9537af10008c6be50495f3ff8fa33') in 0.0160698 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/TextMesh Pro/Shaders/TMP_Bitmap.shader
+  artifactKey: Guid(128e987d567d4e2c824d754223b3f3b0) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/TextMesh Pro/Shaders/TMP_Bitmap.shader using Guid(128e987d567d4e2c824d754223b3f3b0) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '59786e9de5521c6eda0e088b7c6b3450') in 0.0267681 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/TextMesh Pro/Shaders/TMP_SDF Overlay.shader
+  artifactKey: Guid(dd89cf5b9246416f84610a006f916af7) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/TextMesh Pro/Shaders/TMP_SDF Overlay.shader using Guid(dd89cf5b9246416f84610a006f916af7) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '2aad5efa2f988c4a8872fb12f9013613') in 0.0221357 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000063 seconds.
+  path: Assets/Prefabs/Map/WallHori.prefab
+  artifactKey: Guid(d528641b9a600cd4289f40473beddee6) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Prefabs/Map/WallHori.prefab using Guid(d528641b9a600cd4289f40473beddee6) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'c0eec1f45e7c3aeb8c4f635dba3202d3') in 0.0334343 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 9
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile.shader
+  artifactKey: Guid(fe393ace9b354375a9cb14cdbbc28be4) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile.shader using Guid(fe393ace9b354375a9cb14cdbbc28be4) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '131c207eb16d3562e2da2fb032f0bf42') in 0.0215555 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Assets/TextMesh Pro/Resources/TMP Settings.asset
+  artifactKey: Guid(3f5b5dff67a942289a9defa416b206f3) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/TextMesh Pro/Resources/TMP Settings.asset using Guid(3f5b5dff67a942289a9defa416b206f3) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '1107fd7cc3407ef69749441c600464af') in 0.1015808 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 15
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Imports/AureDevGames/Water Stylized Shader Orto & Perspective Camera/Shader/WaterUnlit.shadergraph
+  artifactKey: Guid(8eef88ae773ef5f4dbe4da56da89303b) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Imports/AureDevGames/Water Stylized Shader Orto & Perspective Camera/Shader/WaterUnlit.shadergraph using Guid(8eef88ae773ef5f4dbe4da56da89303b) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '5d6eed2d3fa84abaea8296599c69ce7d') in 0.0913079 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 18
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000040 seconds.
+  path: Assets/TextMesh Pro/Resources/LineBreaking Following Characters.txt
+  artifactKey: Guid(fade42e8bc714b018fac513c043d323b) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/TextMesh Pro/Resources/LineBreaking Following Characters.txt using Guid(fade42e8bc714b018fac513c043d323b) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'e63cc3ed5e76832ac779d9a1f4482d38') in 0.0180917 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Materials/Boss.mat
+  artifactKey: Guid(1094958f291b64d40a5fc6dfb2498b62) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Materials/Boss.mat using Guid(1094958f291b64d40a5fc6dfb2498b62) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '9430538ce3ff168696421c0e91619759') in 0.0278408 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Scripts/Entities/Fish/ItemData.cs
+  artifactKey: Guid(fa8c122dd0d2ae347992951da2d7b10c) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Scripts/Entities/Fish/ItemData.cs using Guid(fa8c122dd0d2ae347992951da2d7b10c) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '141d902bab62801de7dc43e23734fe8b') in 0.0175672 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Sprites/Bow.png
+  artifactKey: Guid(a81efec5dd2129841b6a10cacd9bc995) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Sprites/Bow.png using Guid(a81efec5dd2129841b6a10cacd9bc995) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '7d989f2a044cdcee2281fbb4305cd93e') in 0.1130743 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Prefabs/Inventory/Salmon.asset
+  artifactKey: Guid(bca06af315bd1814b8af970151bbcbe8) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Prefabs/Inventory/Salmon.asset using Guid(bca06af315bd1814b8af970151bbcbe8) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '1aab7f8f34dcac75fc55c722ba03e5f4') in 0.0312455 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000033 seconds.
+  path: Assets/TextMesh Pro/Resources/Style Sheets/Default Style Sheet.asset
+  artifactKey: Guid(f952c082cb03451daed3ee968ac6c63e) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/TextMesh Pro/Resources/Style Sheets/Default Style Sheet.asset using Guid(f952c082cb03451daed3ee968ac6c63e) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '4473d395f61060b6c8142372a18c5305') in 0.0195319 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Fallback.asset
+  artifactKey: Guid(2e498d1c8094910479dc3e1b768306a4) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Fallback.asset using Guid(2e498d1c8094910479dc3e1b768306a4) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'f11c58e2b7820f98fd19424f9937cf61') in 0.067555 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 5
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Scripts/Map/DungeonCreator.cs
+  artifactKey: Guid(8e9e543b033324e4791540eb02a670d3) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Scripts/Map/DungeonCreator.cs using Guid(8e9e543b033324e4791540eb02a670d3) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '316bd0bc9aaa33a6d93d3953ecd3ae76') in 0.0193281 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Scenes/Hub.unity
+  artifactKey: Guid(ffebc23cf81ab234cb613c303b606a47) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Scenes/Hub.unity using Guid(ffebc23cf81ab234cb613c303b606a47) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'dc25bce3941306b7f907deaf40db49b1') in 0.0152863 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Scripts/Map/RoomGenerator.cs
+  artifactKey: Guid(ace0e265eac47ad4da3ab55bc42eaf88) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Scripts/Map/RoomGenerator.cs using Guid(ace0e265eac47ad4da3ab55bc42eaf88) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '1a51e2531a5a2981eb8ac9fac72ae303') in 0.0196298 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Imports/AureDevGames/Water Stylized Shader Orto & Perspective Camera/Shader/HLSL/GrestnerWaves.hlsl
+  artifactKey: Guid(0feec35a2e5b9e24cbf36fc074d44390) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Imports/AureDevGames/Water Stylized Shader Orto & Perspective Camera/Shader/HLSL/GrestnerWaves.hlsl using Guid(0feec35a2e5b9e24cbf36fc074d44390) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '271f3d106e51899442011c9ce52f1f1a') in 0.0189968 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Imports/AureDevGames/Water Stylized Shader Orto & Perspective Camera/Shader/Subgraphs/Caves.shadersubgraph
+  artifactKey: Guid(3e5c142028ba07d48bba33c5843ba17e) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Imports/AureDevGames/Water Stylized Shader Orto & Perspective Camera/Shader/Subgraphs/Caves.shadersubgraph using Guid(3e5c142028ba07d48bba33c5843ba17e) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'a18333e8317b36ae21bbb84ad41356da') in 0.0424657 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/TextMesh Pro/Shaders/TMP_Bitmap-Mobile.shader
+  artifactKey: Guid(1e3b057af24249748ff873be7fafee47) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/TextMesh Pro/Shaders/TMP_Bitmap-Mobile.shader using Guid(1e3b057af24249748ff873be7fafee47) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'a077585fe6ff8047fd3cd7106de367e2') in 0.0227904 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Materials/ship.mat
+  artifactKey: Guid(3261230d3b00bc341bc30b25b6195362) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Materials/ship.mat using Guid(3261230d3b00bc341bc30b25b6195362) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '34609f1b8e74e67f5ad369e10de085ee') in 0.0212135 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Imports/AureDevGames/Water Stylized Shader Orto & Perspective Camera/Shader/Subgraphs/BlendObjectColor.shadersubgraph
+  artifactKey: Guid(a02636e967a650d4db669ee613538c46) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Imports/AureDevGames/Water Stylized Shader Orto & Perspective Camera/Shader/Subgraphs/BlendObjectColor.shadersubgraph using Guid(a02636e967a650d4db669ee613538c46) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '317cbb556325a87da076f609294c1d1c') in 0.0310315 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Scripts/Misc/Inventory/GridInteract.cs
+  artifactKey: Guid(e95e02aa008a15b478419b2310e2e947) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Scripts/Misc/Inventory/GridInteract.cs using Guid(e95e02aa008a15b478419b2310e2e947) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'dfab876766fda791c0f60327ac010143') in 0.0181616 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Settings/Mobile_Renderer.asset
+  artifactKey: Guid(65bc7dbf4170f435aa868c779acfb082) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Settings/Mobile_Renderer.asset using Guid(65bc7dbf4170f435aa868c779acfb082) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '3dc54b7acee77ec2c274ffce08622c93') in 0.0618951 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Imports/AureDevGames/Water Stylized Shader Orto & Perspective Camera/Textures/MossyRock/mossy_rock_nor_gl_2k.exr
+  artifactKey: Guid(500afbd92ec4c984d8234c4fc6131767) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Imports/AureDevGames/Water Stylized Shader Orto & Perspective Camera/Textures/MossyRock/mossy_rock_nor_gl_2k.exr using Guid(500afbd92ec4c984d8234c4fc6131767) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'f65ed1e8a4d404c58f65e4aa5e8b26aa') in 0.0521488 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Imports/AureDevGames/Water Stylized Shader Orto & Perspective Camera/Textures/Procedural/blurredCaveTex.png
+  artifactKey: Guid(351fad9b94d9c2e4c932375d02947c53) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Imports/AureDevGames/Water Stylized Shader Orto & Perspective Camera/Textures/Procedural/blurredCaveTex.png using Guid(351fad9b94d9c2e4c932375d02947c53) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'aa57fb1eb99278160fd1274cc681712b') in 0.044992 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Imports/AureDevGames/Water Stylized Shader Orto & Perspective Camera/Textures/CrackedFloor/cracked_concrete_nor_gl_2k.exr
+  artifactKey: Guid(b3e7844cbaefa474c8d764f3afa2d494) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Imports/AureDevGames/Water Stylized Shader Orto & Perspective Camera/Textures/CrackedFloor/cracked_concrete_nor_gl_2k.exr using Guid(b3e7844cbaefa474c8d764f3afa2d494) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '3d77c82bafa6f268b2d6781c14f8e878') in 0.0372573 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Prefabs/Inventory/Trout.asset
+  artifactKey: Guid(0b681a53c3b61c1409db6cc701b0bee6) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Prefabs/Inventory/Trout.asset using Guid(0b681a53c3b61c1409db6cc701b0bee6) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'c5f5a44e255c5e08f22d876f30140833') in 0.0210278 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Imports/AureDevGames/Water Stylized Shader Orto & Perspective Camera/Shader/Subgraphs/Fog.shadersubgraph
+  artifactKey: Guid(4d8d465b4ba9a34499f11570d2bfbcf0) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Imports/AureDevGames/Water Stylized Shader Orto & Perspective Camera/Shader/Subgraphs/Fog.shadersubgraph using Guid(4d8d465b4ba9a34499f11570d2bfbcf0) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'd1d5b30dc34a0764cfb28df97a284ef0') in 0.0272051 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Scripts/FishingMinigame/PuddleInteraction.cs
+  artifactKey: Guid(9b1d9d2f51fd4ce4ea4a1a415e50e63e) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Scripts/FishingMinigame/PuddleInteraction.cs using Guid(9b1d9d2f51fd4ce4ea4a1a415e50e63e) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'e6bda90cfca95216a9492b618bdd359f') in 0.0180567 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Imports/AureDevGames/Water Stylized Shader Orto & Perspective Camera/Textures/Procedural/VoronoiWater.png
+  artifactKey: Guid(bdd1cbdd2c923164980eae84b3bcf7a2) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Imports/AureDevGames/Water Stylized Shader Orto & Perspective Camera/Textures/Procedural/VoronoiWater.png using Guid(bdd1cbdd2c923164980eae84b3bcf7a2) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '8834023d54c06e58b0f695604d427537') in 0.0369053 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Imports/AureDevGames/Water Stylized Shader Orto & Perspective Camera/Textures/Skybox/nx.png
+  artifactKey: Guid(9db2aa5b9275a9048b7a4d9eb51c7c73) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Imports/AureDevGames/Water Stylized Shader Orto & Perspective Camera/Textures/Skybox/nx.png using Guid(9db2aa5b9275a9048b7a4d9eb51c7c73) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '1f2896e4446ef50e9d14b5e29403de77') in 0.0358364 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/Imports/AureDevGames/Water Stylized Shader Orto & Perspective Camera/Textures/Procedural/waterTex2.png
+  artifactKey: Guid(6fefcd8c793db25468e4708bffc9b2e2) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Imports/AureDevGames/Water Stylized Shader Orto & Perspective Camera/Textures/Procedural/waterTex2.png using Guid(6fefcd8c793db25468e4708bffc9b2e2) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '94ea050050d614d4277e2f20dac01464') in 0.0400904 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
+  path: Assets/TextMesh Pro/Shaders/TMPro_Properties.cginc
+  artifactKey: Guid(3997e2241185407d80309a82f9148466) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/TextMesh Pro/Shaders/TMPro_Properties.cginc using Guid(3997e2241185407d80309a82f9148466) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '36cbeba956c2b38412bec3a0a605bb58') in 0.0223256 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/TextMesh Pro/Fonts/LiberationSans - OFL.txt
+  artifactKey: Guid(6e59c59b81ab47f9b6ec5781fa725d2c) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/TextMesh Pro/Fonts/LiberationSans - OFL.txt using Guid(6e59c59b81ab47f9b6ec5781fa725d2c) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '1544f692e8b983e3dc650f76193b529d') in 0.015936 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Prefabs/Puddle.prefab
+  artifactKey: Guid(4cafde94f32383d48b0634fb37894205) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Prefabs/Puddle.prefab using Guid(4cafde94f32383d48b0634fb37894205) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '9e10dd9e6eb458d94a6d90fad3ed2193') in 0.1224071 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 28
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Imports/AureDevGames/Water Stylized Shader Orto & Perspective Camera/Textures/Skybox/py 1.png
+  artifactKey: Guid(8db125f2982ee5541a649f36850cb9ff) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Imports/AureDevGames/Water Stylized Shader Orto & Perspective Camera/Textures/Skybox/py 1.png using Guid(8db125f2982ee5541a649f36850cb9ff) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '24523123adc68bcd7d2ad531d34c1971') in 0.0335334 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000043 seconds.
+  path: Assets/Imports/AureDevGames/Water Stylized Shader Orto & Perspective Camera/Textures/Skybox/ny.png
+  artifactKey: Guid(a14f78300f94112408e9ea555ed42c0d) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Imports/AureDevGames/Water Stylized Shader Orto & Perspective Camera/Textures/Skybox/ny.png using Guid(a14f78300f94112408e9ea555ed42c0d) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'de21d8e1b256d8b07fe435796c5bf3db') in 0.0424858 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Imports/AureDevGames/Water Stylized Shader Orto & Perspective Camera/Textures/Snow/license.txt
+  artifactKey: Guid(219fe6cda0837f847b84541a07f2e3f7) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Imports/AureDevGames/Water Stylized Shader Orto & Perspective Camera/Textures/Snow/license.txt using Guid(219fe6cda0837f847b84541a07f2e3f7) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'd7168b6d72d1d6f76a5834dc91705d19') in 0.0195495 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Imports/AureDevGames/Water Stylized Shader Orto & Perspective Camera/Textures/Skybox/pz.png
+  artifactKey: Guid(2ba6f43ef5370d245a4fe971eb895b29) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Imports/AureDevGames/Water Stylized Shader Orto & Perspective Camera/Textures/Skybox/pz.png using Guid(2ba6f43ef5370d245a4fe971eb895b29) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '47ba97b27a99a40377fb2296ec78f822') in 0.0405871 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Imports/AureDevGames/Water Stylized Shader Orto & Perspective Camera/Shader/Subgraphs/InvertColors.shadersubgraph
+  artifactKey: Guid(a5c43e269304bff4a91c002de46388cb) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Imports/AureDevGames/Water Stylized Shader Orto & Perspective Camera/Shader/Subgraphs/InvertColors.shadersubgraph using Guid(a5c43e269304bff4a91c002de46388cb) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '97240268564772f6615439bf27620856') in 0.0365712 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Imports/AureDevGames/Water Stylized Shader Orto & Perspective Camera/Textures/TerrainProfiles/Sand.terrainlayer
+  artifactKey: Guid(07f7e21dfa299044abcc0f7f31413aed) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Imports/AureDevGames/Water Stylized Shader Orto & Perspective Camera/Textures/TerrainProfiles/Sand.terrainlayer using Guid(07f7e21dfa299044abcc0f7f31413aed) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'c2cb234c01b554831c00e3b22ef9ae5c') in 0.0222839 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Imports/AureDevGames/Water Stylized Shader Orto & Perspective Camera/Textures/Snow/snow_01_normal_dx_2k.png
+  artifactKey: Guid(a63d1c332504d914589d81b798508358) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Imports/AureDevGames/Water Stylized Shader Orto & Perspective Camera/Textures/Snow/snow_01_normal_dx_2k.png using Guid(a63d1c332504d914589d81b798508358) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '0c89491c7efe1a8fd2183885eb06202c') in 0.0558969 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Settings/DefaultVolumeProfile.asset
+  artifactKey: Guid(ab09877e2e707104187f6f83e2f62510) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Settings/DefaultVolumeProfile.asset using Guid(ab09877e2e707104187f6f83e2f62510) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '6483ebc8f26678b491b803a906739b93') in 0.0343327 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/TextMesh Pro/Shaders/TMP_SDF.shader
+  artifactKey: Guid(68e6db2ebdc24f95958faec2be5558d6) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/TextMesh Pro/Shaders/TMP_SDF.shader using Guid(68e6db2ebdc24f95958faec2be5558d6) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '2fbc200182a1902fb9baf9a2c7b61108') in 0.0318906 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/Imports/AureDevGames/Water Stylized Shader Orto & Perspective Camera/Shader/Subgraphs/RefractedUV.shadersubgraph
+  artifactKey: Guid(dfdc6038fe7bdd5479fef69a0fcdb7ab) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Imports/AureDevGames/Water Stylized Shader Orto & Perspective Camera/Shader/Subgraphs/RefractedUV.shadersubgraph using Guid(dfdc6038fe7bdd5479fef69a0fcdb7ab) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '64b733763994f83aa0b0621818633441') in 0.032141 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Imports/AureDevGames/Water Stylized Shader Orto & Perspective Camera/Textures/Skybox/Cubemap.cubemap
+  artifactKey: Guid(3cd3fe69444167c499843b73f2dbe6ae) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Imports/AureDevGames/Water Stylized Shader Orto & Perspective Camera/Textures/Skybox/Cubemap.cubemap using Guid(3cd3fe69444167c499843b73f2dbe6ae) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '409727970fc29fc7e97e3bb80d7a046f') in 0.6594089 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Imports/AureDevGames/Water Stylized Shader Orto & Perspective Camera/Textures/Procedural/VoronoiWaterSubstance.png
+  artifactKey: Guid(c58aa24ed73fba846b5000ddda992872) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Imports/AureDevGames/Water Stylized Shader Orto & Perspective Camera/Textures/Procedural/VoronoiWaterSubstance.png using Guid(c58aa24ed73fba846b5000ddda992872) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '1b9788895c53429ccc7fc9d22bf028a9') in 0.0445528 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Sprites/WhiteTile.png
+  artifactKey: Guid(abb3748ed3c8e544f8b4154df955f5d5) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Sprites/WhiteTile.png using Guid(abb3748ed3c8e544f8b4154df955f5d5) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'f40fcf11d8290bf06306709136735826') in 0.0385077 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000063 seconds.
+  path: Assets/Scripts/Map/BinarySpacePartitioner.cs
+  artifactKey: Guid(73ec8b38c36e6b342b2658dfd5e8eb01) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Scripts/Map/BinarySpacePartitioner.cs using Guid(73ec8b38c36e6b342b2658dfd5e8eb01) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'fe68aa1751763fb750f938b42cb91d1a') in 0.020442 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Imports/AureDevGames/Water Stylized Shader Orto & Perspective Camera/Textures/TerrainProfiles/MossyRock.terrainlayer
+  artifactKey: Guid(ff3be8f3830357047819cbb6e1481f3f) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Imports/AureDevGames/Water Stylized Shader Orto & Perspective Camera/Textures/TerrainProfiles/MossyRock.terrainlayer using Guid(ff3be8f3830357047819cbb6e1481f3f) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '8c130e474d628d46c212b0c240c91859') in 0.0424318 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/TextMesh Pro/Shaders/TMPro_Mobile.cginc
+  artifactKey: Guid(c334973cef89a9840b0b0c507e0377ab) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/TextMesh Pro/Shaders/TMPro_Mobile.cginc using Guid(c334973cef89a9840b0b0c507e0377ab) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '658ffde61828c06336cac37138e1ae5b') in 0.016739 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000033 seconds.
+  path: Assets/Materials/Black.mat
+  artifactKey: Guid(5656a4c3c9021e64c80d4a401b97d485) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Materials/Black.mat using Guid(5656a4c3c9021e64c80d4a401b97d485) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '84d37df19d507d1667eb00f2f84928d1') in 0.0203127 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Imports/AureDevGames/Water Stylized Shader Orto & Perspective Camera/Shader/Subgraphs/GetDepth.shadersubgraph
+  artifactKey: Guid(370b72acb6baa764089512ed583870c4) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Imports/AureDevGames/Water Stylized Shader Orto & Perspective Camera/Shader/Subgraphs/GetDepth.shadersubgraph using Guid(370b72acb6baa764089512ed583870c4) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'd2746a9fcabc0ef0f2cc3962522e690a') in 0.0333504 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Drop Shadow.mat
+  artifactKey: Guid(e73a58f6e2794ae7b1b7e50b7fb811b0) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Drop Shadow.mat using Guid(e73a58f6e2794ae7b1b7e50b7fb811b0) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '410222ccb0d8715aed32ccd6b5503efb') in 0.0423448 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Imports/AureDevGames/Water Stylized Shader Orto & Perspective Camera/PresetMaterials/M_StylizedPoison.mat
+  artifactKey: Guid(a8ed554223410d34bb35b2957fe24761) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Imports/AureDevGames/Water Stylized Shader Orto & Perspective Camera/PresetMaterials/M_StylizedPoison.mat using Guid(a8ed554223410d34bb35b2957fe24761) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'fc0a1849a52db2b9bb93cb3910654918') in 0.0442457 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 22
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Assets/Imports/AureDevGames/Water Stylized Shader Orto & Perspective Camera/Shader/Subgraphs/CalculateUVs.shadersubgraph
+  artifactKey: Guid(60d47073ac03df54f9a15991680de154) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Imports/AureDevGames/Water Stylized Shader Orto & Perspective Camera/Shader/Subgraphs/CalculateUVs.shadersubgraph using Guid(60d47073ac03df54f9a15991680de154) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '92c1c4a2c95c38299799ae28e99c8418') in 0.026448 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Assets/Imports/AureDevGames/Water Stylized Shader Orto & Perspective Camera/Shader/HLSL/MainLighting.hlsl
+  artifactKey: Guid(9ec46a2fd8a98924e9af6e1cf4be7007) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Imports/AureDevGames/Water Stylized Shader Orto & Perspective Camera/Shader/HLSL/MainLighting.hlsl using Guid(9ec46a2fd8a98924e9af6e1cf4be7007) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '9940c7cf7841c0fdcdb3ef3ed594e93c') in 0.0271582 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Scripts/FishingMinigame/FishingStruggle.cs
+  artifactKey: Guid(c48a16d15149fce4d90332f0f85e2dbe) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Scripts/FishingMinigame/FishingStruggle.cs using Guid(c48a16d15149fce4d90332f0f85e2dbe) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'c91e8569655cbc7b7d8bca37f3e8d025') in 0.0205802 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000038 seconds.
+  path: Assets/Imports/AureDevGames/Water Stylized Shader Orto & Perspective Camera/PresetMaterials/M_StylizedOceanWater.mat
+  artifactKey: Guid(867ec64eba6038b4e95709fa94008027) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Imports/AureDevGames/Water Stylized Shader Orto & Perspective Camera/PresetMaterials/M_StylizedOceanWater.mat using Guid(867ec64eba6038b4e95709fa94008027) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'c7ccb0c9d12c663079782dd01bd75c30') in 0.0457689 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 23
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000040 seconds.
+  path: Assets/Scenes/River.unity
+  artifactKey: Guid(99c9720ab356a0642a771bea13969a05) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Scenes/River.unity using Guid(99c9720ab356a0642a771bea13969a05) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '070c6a5cbdb950c44d7d79551b30e4b1') in 0.0383686 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Prefabs/Inventory/Bass.asset
+  artifactKey: Guid(40ff71b389164af4fba2a7c0fdbfac05) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Prefabs/Inventory/Bass.asset using Guid(40ff71b389164af4fba2a7c0fdbfac05) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '9fa114ccefa5132100a2de77e7e3a327') in 0.020587 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Imports/AureDevGames/Water Stylized Shader Orto & Perspective Camera/Textures/CrackedFloor/cracked_concrete_diff_2k.png
+  artifactKey: Guid(95588501ea5b8d4449992b53313c06fa) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Imports/AureDevGames/Water Stylized Shader Orto & Perspective Camera/Textures/CrackedFloor/cracked_concrete_diff_2k.png using Guid(95588501ea5b8d4449992b53313c06fa) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'e7572e3b5732eb0924da7c25cb8a2538') in 0.031769 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Imports/AureDevGames/Water Stylized Shader Orto & Perspective Camera/Textures/BeachBall/BeachBall.mat
+  artifactKey: Guid(1aeec081a69596145ab13d068de02fc7) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Imports/AureDevGames/Water Stylized Shader Orto & Perspective Camera/Textures/BeachBall/BeachBall.mat using Guid(1aeec081a69596145ab13d068de02fc7) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '5ab06f04b80fe9d18faaa60cd6203be4') in 0.0251211 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/Imports/AureDevGames/Water Stylized Shader Orto & Perspective Camera/Shader/Subgraphs/FresnelCalculation.shadersubgraph
+  artifactKey: Guid(f346593723353f4488f8a099aef520eb) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Imports/AureDevGames/Water Stylized Shader Orto & Perspective Camera/Shader/Subgraphs/FresnelCalculation.shadersubgraph using Guid(f346593723353f4488f8a099aef520eb) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'e6fe7286fe50f12e4c07b36b8e15f8de') in 0.0245805 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Imports/AureDevGames/Water Stylized Shader Orto & Perspective Camera/Textures/TerrainProfiles/Moss.terrainlayer
+  artifactKey: Guid(4a166bb89ced99f4cade82e0973af608) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Imports/AureDevGames/Water Stylized Shader Orto & Perspective Camera/Textures/TerrainProfiles/Moss.terrainlayer using Guid(4a166bb89ced99f4cade82e0973af608) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '2e64f9c973854125ecf696dec1ed834a') in 0.0195802 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Readme.asset
+  artifactKey: Guid(8105016687592461f977c054a80ce2f2) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Readme.asset using Guid(8105016687592461f977c054a80ce2f2) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '5bfc5350a32f4e92d0aa767e1ee0590e') in 0.0177906 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Imports/AureDevGames/Water Stylized Shader Orto & Perspective Camera/Textures/Procedural/voronoiUpgraded_albedo.png
+  artifactKey: Guid(acf838d458094e11b23ceafc2d9a02b0) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Imports/AureDevGames/Water Stylized Shader Orto & Perspective Camera/Textures/Procedural/voronoiUpgraded_albedo.png using Guid(acf838d458094e11b23ceafc2d9a02b0) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'be0779b12865977af3593b1930bca2a7') in 0.041391 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Imports/AureDevGames/Water Stylized Shader Orto & Perspective Camera/Textures/TerrainProfiles/SnowMountain.terrainlayer
+  artifactKey: Guid(17f8e929eb629c94d8a37a0dd5e1fbb6) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Imports/AureDevGames/Water Stylized Shader Orto & Perspective Camera/Textures/TerrainProfiles/SnowMountain.terrainlayer using Guid(17f8e929eb629c94d8a37a0dd5e1fbb6) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'c6978beba0ae88fe9300f4546db6bbf6') in 0.0245852 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/TextMesh Pro/Shaders/TMP_Bitmap-Custom-Atlas.shader
+  artifactKey: Guid(48bb5f55d8670e349b6e614913f9d910) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/TextMesh Pro/Shaders/TMP_Bitmap-Custom-Atlas.shader using Guid(48bb5f55d8670e349b6e614913f9d910) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '1a81f64ac71f7c02f0c81df34a6e5359') in 0.0177509 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Scripts/FishingMinigame/FishingReel.cs
+  artifactKey: Guid(52e31cc603f5923448ccbf13fe10f1e2) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Scripts/FishingMinigame/FishingReel.cs using Guid(52e31cc603f5923448ccbf13fe10f1e2) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'f2150ec3ea6575a7066e9ec8aa0e9c0d') in 0.0175355 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Scripts/Map/StructureHelper.cs
+  artifactKey: Guid(b2bf06e8d86cd9b4c8bcb7c56a5a5736) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Scripts/Map/StructureHelper.cs using Guid(b2bf06e8d86cd9b4c8bcb7c56a5a5736) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'ac04fb34938f6cf507802aa0a72ef641') in 0.0154621 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Settings/Mobile_RPAsset.asset
+  artifactKey: Guid(5e6cbd92db86f4b18aec3ed561671858) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Settings/Mobile_RPAsset.asset using Guid(5e6cbd92db86f4b18aec3ed561671858) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '8e58a80540997e54ef802f917094b2ba') in 0.0999917 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile-2-Pass.shader
+  artifactKey: Guid(0178fcb869bafef4690d177d31d17db8) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile-2-Pass.shader using Guid(0178fcb869bafef4690d177d31d17db8) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'ca2542098400636301467595f46d7064') in 0.0200504 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/Imports/AureDevGames/Water Stylized Shader Orto & Perspective Camera/Textures/Procedural/TCom_Gore_2K_normal.tif
+  artifactKey: Guid(4788f2bd60294f241b05bba627dc673b) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Imports/AureDevGames/Water Stylized Shader Orto & Perspective Camera/Textures/Procedural/TCom_Gore_2K_normal.tif using Guid(4788f2bd60294f241b05bba627dc673b) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '1f5d5b5d1da201ebf86537982a7d3f8d') in 0.0543375 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Imports/AureDevGames/Water Stylized Shader Orto & Perspective Camera/PresetMaterials/M_RiverWater.mat
+  artifactKey: Guid(3feda66d2d021334c912416a6209787e) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Imports/AureDevGames/Water Stylized Shader Orto & Perspective Camera/PresetMaterials/M_RiverWater.mat using Guid(3feda66d2d021334c912416a6209787e) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '26fe1f630196512465b11a75e7e0ec1d') in 0.059857 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 22
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Imports/AureDevGames/Water Stylized Shader Orto & Perspective Camera/Shader/HLSL/DistortUV.hlsl
+  artifactKey: Guid(84eeacf7409dd9e4a8cbfab15c1cb3c7) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Imports/AureDevGames/Water Stylized Shader Orto & Perspective Camera/Shader/HLSL/DistortUV.hlsl using Guid(84eeacf7409dd9e4a8cbfab15c1cb3c7) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'c2d242231e500d4ffc562b1df8f30f63') in 0.024654 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000041 seconds.
+  path: Assets/Imports/AureDevGames/Water Stylized Shader Orto & Perspective Camera/Textures/Skybox/py.png
+  artifactKey: Guid(85366bdf141e5b4479dfeb8854978eaf) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Imports/AureDevGames/Water Stylized Shader Orto & Perspective Camera/Textures/Skybox/py.png using Guid(85366bdf141e5b4479dfeb8854978eaf) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'df3b749610c96db88503626bf7975a8b') in 0.0803609 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Masking.shader
+  artifactKey: Guid(bc1ede39bf3643ee8e493720e4259791) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Masking.shader using Guid(bc1ede39bf3643ee8e493720e4259791) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '6ec6df4b9611c04566ff378c14a73850') in 0.0262947 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Imports/AureDevGames/Water Stylized Shader Orto & Perspective Camera/Textures/Snow/snow_01_ambient_occlusion_2k.png
+  artifactKey: Guid(605cc8c8b9e7eb949a51544aeb4265bb) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Imports/AureDevGames/Water Stylized Shader Orto & Perspective Camera/Textures/Snow/snow_01_ambient_occlusion_2k.png using Guid(605cc8c8b9e7eb949a51544aeb4265bb) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'c1d58c6f0acf7fe98c9e06fd20c49e80') in 0.0824375 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000041 seconds.
+  path: Assets/Materials/Golden.mat
+  artifactKey: Guid(c2e59c1f916ec0a4cae71c1516857c83) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Materials/Golden.mat using Guid(c2e59c1f916ec0a4cae71c1516857c83) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '12550b52e18adc9b79eba26bc98e20a2') in 0.0386326 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Scripts/Map/Line.cs
+  artifactKey: Guid(f2635268952aad749b836f5369055a6a) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Scripts/Map/Line.cs using Guid(f2635268952aad749b836f5369055a6a) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'afe110f6961bb4c3130f3dc56d23b23f') in 0.0202829 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Sprites/Potion.png
+  artifactKey: Guid(d14b488b2f8233445b6d00af68083eac) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Sprites/Potion.png using Guid(d14b488b2f8233445b6d00af68083eac) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'f1939048a657175bab511de39e09a544') in 0.0360475 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Scripts/Map/Node.cs
+  artifactKey: Guid(b55b15b33f338134cac6664da9c36dcc) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Scripts/Map/Node.cs using Guid(b55b15b33f338134cac6664da9c36dcc) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '67a7c9f60f24dc59d3f1b8bd0efc34c1') in 0.0192682 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000039 seconds.
+  path: Assets/Imports/AureDevGames/Water Stylized Shader Orto & Perspective Camera/Textures/MossyRock/mossy_rock_rough_2k.exr
+  artifactKey: Guid(3ab7fd303c248ba43b78213d14cfef16) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Imports/AureDevGames/Water Stylized Shader Orto & Perspective Camera/Textures/MossyRock/mossy_rock_rough_2k.exr using Guid(3ab7fd303c248ba43b78213d14cfef16) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '536e94bce9a4e84f7fa37e530ad25223') in 0.0476315 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Scripts/FishingMinigame/PuddleSpawner.cs
+  artifactKey: Guid(6462d6f6eed05d1419487a6cc35de8b3) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Scripts/FishingMinigame/PuddleSpawner.cs using Guid(6462d6f6eed05d1419487a6cc35de8b3) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '6812692101b8e17f2b2ed87b8737aa78') in 0.0196025 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0
