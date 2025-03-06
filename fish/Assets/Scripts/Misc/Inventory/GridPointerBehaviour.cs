@@ -1,8 +1,9 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+//assigns the inventory manager the correct grid when it is being hovered over
 [RequireComponent(typeof(ItemGrid))]
-public class GridInteract : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class GridPointerBehaviour : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     InventoryManager inventoryManager;
     ItemGrid itemGrid;

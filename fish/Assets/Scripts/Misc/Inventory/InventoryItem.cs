@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+//holds the data & logic for inventory items
 public class InventoryItem : MonoBehaviour
 {
     public ItemData itemData;

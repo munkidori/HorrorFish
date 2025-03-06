@@ -31,6 +31,7 @@ public class ItemGrid : MonoBehaviour
         rectTransform.sizeDelta = size;
     }
 
+    //returns the targeted tile for a chosen mouse position
     public Vector2Int GetTileGridPosition(Vector2 mousePosition)
     {
         // om de coordinaten van mijn tiles in te stellen in mijn grid (tile 1 = 0,0 / tile 2 = 1,0 / ...)
