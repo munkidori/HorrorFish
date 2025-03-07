@@ -102,7 +102,7 @@ public class FishingGame : MonoBehaviour
         
         if (item != null)
         {
-            item.Set(currentFish);
+            item.Set(currentFish, inventoryManager.SelectedItemGrid.tileSize);
             Debug.Log($"Created inventory item for {currentFish.itemName}");            
             inventoryManager.InsertItem(item);
         }

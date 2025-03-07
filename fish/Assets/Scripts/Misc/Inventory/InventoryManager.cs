@@ -30,7 +30,6 @@ public class InventoryManager : MonoBehaviour
     Vector2Int currentTileGridPosition;
     InventoryItem overlapItem;
     InventoryHighlight inventoryHighlight;
-
     Vector2Int previousHighlightPosition;
 
     private void Awake()
@@ -50,14 +49,14 @@ public class InventoryManager : MonoBehaviour
             RotateItem();
 
         // als muis buiten de grid is EN je hebt een item vast en ...
-        if (selectedItemGrid == null && SelectedItem != null && Input.GetMouseButtonDown(0))
+        if (SelectedItemGrid == null && SelectedItem != null && Input.GetMouseButtonDown(0))
             DiscardItem();
 
         // als je geen item vast hebt
         if (Input.GetMouseButtonDown(1) && SelectedItem == null)
             EatItem();
 
-        if (Input.GetMouseButtonDown(0) && selectedItemGrid != null)
+        if (Input.GetMouseButtonDown(0) && SelectedItemGrid != null)
             GrabOrPlaceItem();      
 
         HandleHighlight();
@@ -90,13 +89,13 @@ public class InventoryManager : MonoBehaviour
     public void EatItem()
     {
         //get current item
-        InventoryItem itemAtPosition = selectedItemGrid.GetItem(currentTileGridPosition.x, currentTileGridPosition.y);
+        InventoryItem itemAtPosition = SelectedItemGrid.GetItem(currentTileGridPosition.x, currentTileGridPosition.y);
 
         //attempt to eat current item
         if (itemAtPosition != null)
         {
             GameManager.Instance.AddTime(itemAtPosition.itemData.healAmount);
-            selectedItemGrid.RemoveItem(itemAtPosition);
+            SelectedItemGrid.RemoveItem(itemAtPosition);
             Destroy(itemAtPosition.gameObject);
         }
     }
@@ -113,13 +112,13 @@ public class InventoryManager : MonoBehaviour
     //attempts to update the current item
     private void GrabItem(Vector2Int tileGridPosition)
     {
-        SelectedItem = selectedItemGrid.PickUpItem(tileGridPosition.x, tileGridPosition.y);
+        SelectedItem = SelectedItemGrid.PickUpItem(tileGridPosition.x, tileGridPosition.y);
     }
 
     public void PlaceItem(Vector2Int tileGridPosition)
     {
         //handles what happens inside the grid externally -> then store the result as bool & potential overlapItem to update in this part of the code.
-        bool isPlacementSuccesfull = selectedItemGrid.PlaceItem(SelectedItem, tileGridPosition.x, tileGridPosition.y, ref overlapItem);
+        bool isPlacementSuccesfull = SelectedItemGrid.PlaceItem(SelectedItem, tileGridPosition.x, tileGridPosition.y, ref overlapItem);
 
         if (isPlacementSuccesfull)
         {
@@ -140,18 +139,18 @@ public class InventoryManager : MonoBehaviour
     //ask the grid what the current mouse position means
     private Vector2Int GetTileGridPosition()
     {
-        if(selectedItemGrid)
+        if(SelectedItemGrid)
         {
             Vector2 position = Input.mousePosition;
 
             //offset the grabbed item so that you hold the center of the item for placement
             if (SelectedItem != null)
             {
-                position.x -= (SelectedItem.Width - 1) * ItemGrid.tileWidth / 2;
-                position.y += (SelectedItem.Height - 1) * ItemGrid.tileHeight / 2;
+                position.x -= (SelectedItem.Width - 1) * SelectedItemGrid.tileSize / 2;
+                position.y += (SelectedItem.Height - 1) * SelectedItemGrid.tileSize / 2;
             }
 
-            return selectedItemGrid.GetTileGridPosition(position);
+            return SelectedItemGrid.GetTileGridPosition(position);
         }
         //when the grid isn't being targeted return an impossible value
         else
@@ -183,7 +182,7 @@ public class InventoryManager : MonoBehaviour
     private void HandleHighlight()
     {
         // toon highlighter enkel wnr je in grid hovert
-        inventoryHighlight.Show(selectedItemGrid != null);
+        inventoryHighlight.Show(SelectedItemGrid != null);
 
         //only apply changes when highlight has moved.
         if (previousHighlightPosition == currentTileGridPosition)
@@ -196,15 +195,15 @@ public class InventoryManager : MonoBehaviour
             //when holding no items -> attempt to highlight an inventory item.
             if (SelectedItem == null)
             {
-                if(selectedItemGrid != null)
+                if(SelectedItemGrid != null)
                 {
-                    InventoryItem itemToHighlight = selectedItemGrid.GetItem(currentTileGridPosition.x, currentTileGridPosition.y);
+                    InventoryItem itemToHighlight = SelectedItemGrid.GetItem(currentTileGridPosition.x, currentTileGridPosition.y);
 
                     if (itemToHighlight != null)
                     {
                         inventoryHighlight.Show(true);
                         inventoryHighlight.SetSize(itemToHighlight);
-                        inventoryHighlight.SetPosition(selectedItemGrid, itemToHighlight);
+                        inventoryHighlight.SetPosition(SelectedItemGrid, itemToHighlight);
                     }
                     else
                         inventoryHighlight.Show(false);
@@ -213,9 +212,9 @@ public class InventoryManager : MonoBehaviour
             //when holding an item -> highlight that.
             else
             {
-                inventoryHighlight.Show(selectedItemGrid.BoundaryCheck(currentTileGridPosition.x, currentTileGridPosition.y, SelectedItem.itemData.width, SelectedItem.itemData.height));
+                inventoryHighlight.Show(SelectedItemGrid.BoundaryCheck(currentTileGridPosition.x, currentTileGridPosition.y, SelectedItem.itemData.width, SelectedItem.itemData.height));
                 inventoryHighlight.SetSize(SelectedItem);
-                inventoryHighlight.SetPosition(selectedItemGrid, SelectedItem, currentTileGridPosition.x, currentTileGridPosition.y);
+                inventoryHighlight.SetPosition(SelectedItemGrid, SelectedItem, currentTileGridPosition.x, currentTileGridPosition.y);
             }
         }
     }

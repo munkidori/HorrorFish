@@ -2,8 +2,7 @@ using UnityEngine;
 
 public class ItemGrid : MonoBehaviour
 {
-    public const float tileWidth = 32;
-    public const float tileHeight = 32;
+    public float tileSize = 32;
 
     [SerializeField] int gridWidth = 10;
     [SerializeField] int gridHeight = 15;
@@ -27,7 +26,7 @@ public class ItemGrid : MonoBehaviour
     private void Init(int width, int height)
     {
         inventoryItemSlot = new InventoryItem[width, height];
-        Vector2 size = new Vector2(width * tileWidth, height * tileHeight);
+        Vector2 size = new Vector2(width * tileSize, height * tileSize);
         rectTransform.sizeDelta = size;
     }
 
@@ -38,8 +37,8 @@ public class ItemGrid : MonoBehaviour
         positionOnTheGrid.x = mousePosition.x - rectTransform.position.x;
         positionOnTheGrid.y = rectTransform.position.y - mousePosition.y;
 
-        tileGridPosition.x = (int)(positionOnTheGrid.x / tileWidth);
-        tileGridPosition.y = (int)(positionOnTheGrid.y / tileHeight);
+        tileGridPosition.x = (int)(positionOnTheGrid.x / tileSize);
+        tileGridPosition.y = (int)(positionOnTheGrid.y / tileSize);
 
         return tileGridPosition;
     }
@@ -92,8 +91,8 @@ public class ItemGrid : MonoBehaviour
     public Vector2 CalculatePosition(InventoryItem item, int posX, int posY)
     {
         Vector2 position;
-        position.x = posX * tileWidth + tileWidth * item.Width / 2;
-        position.y = -(posY * tileHeight + tileHeight * item.Height / 2);
+        position.x = posX * tileSize + tileSize * item.Width / 2;
+        position.y = -(posY * tileSize + tileSize * item.Height / 2);
         return position;
     }
 

@@ -28,14 +28,14 @@ public class InventoryItem : MonoBehaviour
     public int onGridPositionX, onGridPositionY;
     public bool rotated = false;
 
-    internal void Set(ItemData itemData)
+    internal void Set(ItemData itemData, float tileSize)
     {
         this.itemData = itemData;
         GetComponent<Image>().sprite = itemData.image;
 
         Vector2 size = new Vector2();
-        size.x = itemData.width * ItemGrid.tileWidth;
-        size.y = itemData.height * ItemGrid.tileHeight;
+        size.x = itemData.width * tileSize;
+        size.y = itemData.height * tileSize;
 
         GetComponent<RectTransform>().sizeDelta = size;
     }

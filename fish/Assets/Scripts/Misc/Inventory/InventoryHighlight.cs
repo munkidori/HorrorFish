@@ -3,6 +3,7 @@ using UnityEngine;
 public class InventoryHighlight : MonoBehaviour
 {
     [SerializeField] RectTransform highlighter;
+    ItemGrid parentGrid;
 
     public void Show(bool b)
     {
@@ -12,8 +13,8 @@ public class InventoryHighlight : MonoBehaviour
     public void SetSize(InventoryItem targetItem)
     {
         Vector2 size = new Vector2();
-        size.x = targetItem.Width * ItemGrid.tileWidth;
-        size.y = targetItem.Height * ItemGrid.tileHeight;
+        size.x = targetItem.Width * parentGrid.tileSize;
+        size.y = targetItem.Height * parentGrid.tileSize;
 
         highlighter.sizeDelta = size;
     }
@@ -23,11 +24,13 @@ public class InventoryHighlight : MonoBehaviour
         if (targetGrid == null)
             return;
 
+        parentGrid = targetGrid;
         highlighter.SetParent(targetGrid.GetComponent<RectTransform>());
     }
 
     public void SetPosition(ItemGrid targetGrid, InventoryItem targetItem, int posX, int posY)
     {
+        parentGrid = targetGrid;
         Vector2 pos = targetGrid.CalculatePosition(targetItem, posX, posY);
         highlighter.localPosition = pos;
     }
