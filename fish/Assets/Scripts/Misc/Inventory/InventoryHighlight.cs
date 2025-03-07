@@ -31,14 +31,14 @@ public class InventoryHighlight : MonoBehaviour
     public void SetPosition(ItemGrid targetGrid, InventoryItem targetItem, int posX, int posY)
     {
         parentGrid = targetGrid;
-        Vector2 pos = targetGrid.CalculatePosition(targetItem, posX, posY);
+        Vector2 pos = targetGrid.CalculateWorldPosition(targetItem, posX, posY);
         highlighter.localPosition = pos;
     }
 
     // overload methode voor het overlappende item highlighter
     public void SetPosition(ItemGrid targetGrid, InventoryItem targetItem)
     {
-        Vector2 pos = targetGrid.CalculatePosition(targetItem, targetItem.onGridPositionX, targetItem.onGridPositionY);
+        Vector2 pos = targetGrid.CalculateWorldPosition(targetItem, targetItem.onGridPosition.x, targetItem.onGridPosition.y);
         highlighter.localPosition = pos;
     }
 }

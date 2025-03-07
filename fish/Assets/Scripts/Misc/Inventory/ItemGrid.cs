@@ -7,40 +7,35 @@ public class ItemGrid : MonoBehaviour
     [SerializeField] int gridWidth = 10;
     [SerializeField] int gridHeight = 15;
 
-    [SerializeField] float showPosition = 1000f;  // X position when shown
-    [SerializeField] float hidePosition = 60000f;  // X position when hidden
+    [SerializeField] float showPosition = 1000f;  // X position when shown      ////
+    [SerializeField] float hidePosition = 60000f;  // X position when hidden    ////
     private bool isShowing = false;
 
-    RectTransform rectTransform;
-    Vector2 positionOnTheGrid = new Vector2();
-    Vector2Int tileGridPosition = new Vector2Int();
-
+    RectTransform gridRectTransform;
     InventoryItem[,] inventoryItemSlot;
 
     private void Start()
     {
-        rectTransform = GetComponent<RectTransform>();
+        gridRectTransform = GetComponent<RectTransform>();
         Init(gridWidth, gridHeight);
     }
 
-    private void Init(int width, int height)
+    private void Init(int width, int height)////
     {
         inventoryItemSlot = new InventoryItem[width, height];
         Vector2 size = new Vector2(width * tileSize, height * tileSize);
-        rectTransform.sizeDelta = size;
+        gridRectTransform.sizeDelta = size;
     }
 
     //returns the targeted tile for a chosen mouse position
     public Vector2Int GetTileGridPosition(Vector2 mousePosition)
     {
         // om de coordinaten van mijn tiles in te stellen in mijn grid (tile 1 = 0,0 / tile 2 = 1,0 / ...)
-        positionOnTheGrid.x = mousePosition.x - rectTransform.position.x;
-        positionOnTheGrid.y = rectTransform.position.y - mousePosition.y;
-
-        tileGridPosition.x = (int)(positionOnTheGrid.x / tileSize);
-        tileGridPosition.y = (int)(positionOnTheGrid.y / tileSize);
-
-        return tileGridPosition;
+        return new Vector2Int
+        (
+            (int)(mousePosition.x - gridRectTransform.position.x / tileSize),
+            (int)(gridRectTransform.position.y - mousePosition.y / tileSize)
+        );
     }
 
     // overload method met het te plaatse item reference (wanneer je een item wilt verplaatsen met een andere)
@@ -59,7 +54,7 @@ public class ItemGrid : MonoBehaviour
         }
 
         if (overlapItem != null)
-            CleanGridReference(overlapItem);
+            TakeItemOffGrid(overlapItem);
 
         PlaceItem(item, posX, posY);
 
@@ -68,8 +63,8 @@ public class ItemGrid : MonoBehaviour
 
     public void PlaceItem(InventoryItem item, int posX, int posY)
     {
-        RectTransform rectTransform = item.GetComponent<RectTransform>();
-        rectTransform.SetParent(this.rectTransform);
+        RectTransform itemRectTransform = item.GetComponent<RectTransform>();
+        itemRectTransform.SetParent(this.gridRectTransform);
 
         // zodat de item alle nodige tiles neemt om ermee te interacten, niet enkel de 1ste tile (links boven)
         for (int i = 0; i < item.Width; i++)
@@ -80,15 +75,15 @@ public class ItemGrid : MonoBehaviour
             }
         }
 
-        item.onGridPositionX = posX;
-        item.onGridPositionY = posY;
+        item.onGridPosition = new Vector2Int(posX, posY);
 
-        Vector2 position = CalculatePosition(item, posX, posY);
+        Vector2 position = CalculateWorldPosition(item, posX, posY);
 
-        rectTransform.localPosition = position;
+        itemRectTransform.localPosition = position;
     }
 
-    public Vector2 CalculatePosition(InventoryItem item, int posX, int posY)
+    //calculates the position for an item by converting grid coords into vector2
+    public Vector2 CalculateWorldPosition(InventoryItem item, int posX, int posY)
     {
         Vector2 position;
         position.x = posX * tileSize + tileSize * item.Width / 2;
@@ -96,6 +91,13 @@ public class ItemGrid : MonoBehaviour
         return position;
     }
 
+    //returns an item for a position
+    public InventoryItem GetItem(int x, int y)
+    {
+        return inventoryItemSlot[x, y];
+    }
+
+    //returns an item for a position AND takes it of the grid
     public InventoryItem PickUpItem(int x, int y)
     {
         InventoryItem toReturn = inventoryItemSlot[x, y];
@@ -103,34 +105,37 @@ public class ItemGrid : MonoBehaviour
         if (toReturn == null)
             return null;
 
-        CleanGridReference(toReturn);
+        //remove item from the grid
+        TakeItemOffGrid(toReturn);
 
         return toReturn;
     }
 
-    public void RemoveItem(InventoryItem item)
+    //completely deletes an item
+    public void DeleteItem(InventoryItem item)
     {
         for (int i = 0; i < item.Width; i++)
         {
             for (int j = 0; j < item.Height; j++)
             {
-                Destroy(inventoryItemSlot[item.onGridPositionX + i, item.onGridPositionY + j]);
+                Destroy(inventoryItemSlot[item.onGridPosition.x + i, item.onGridPosition.y + j]);
             }
         }
     }
 
-    private void CleanGridReference(InventoryItem item)
+    //make an item no longer part of the grid (item instance still exists)
+    private void TakeItemOffGrid(InventoryItem item)
     {
         for (int i = 0; i < item.Width; i++)
         {
             for (int j = 0; j < item.Height; j++)
             {
-                inventoryItemSlot[item.onGridPositionX + i, item.onGridPositionY + j] = null;
+                inventoryItemSlot[item.onGridPosition.x + i, item.onGridPosition.y + j] = null;
             }
         }
     }
 
-    bool PositionCheck(int posX, int posY)
+    bool PositionExistCheck(int posX, int posY)
     {
         if (posX < 0 || posY < 0)
             return false;
@@ -143,13 +148,13 @@ public class ItemGrid : MonoBehaviour
 
     public bool BoundaryCheck(int posX, int posY, int width, int height)
     {
-        if (PositionCheck(posX, posY) == false)
+        if (PositionExistCheck(posX, posY) == false)
             return false;
 
         posX += width-1;
         posY += height-1;
 
-        if (PositionCheck(posX, posY) == false)
+        if (PositionExistCheck(posX, posY) == false)
             return false;
 
         return true;
@@ -175,11 +180,6 @@ public class ItemGrid : MonoBehaviour
         }
 
         return true;
-    }
-
-    public InventoryItem GetItem(int x, int y)
-    {
-        return inventoryItemSlot[x, y];
     }
 
     public Vector2Int? FindSpaceForItem(InventoryItem itemToInsert)
@@ -213,19 +213,12 @@ public class ItemGrid : MonoBehaviour
         return true;
     }
 
-    public bool IsSlotTaken(int x, int y)
-    {
-        if (x < 0 || y < 0 || x >= gridWidth || y >= gridHeight)
-            return true;
-        return inventoryItemSlot[x, y] != null;
-    }
-
-    public void ToggleInventory()
+    public void ToggleInventory()////
     {
         isShowing = !isShowing;
-        Vector2 anchoredPos = rectTransform.anchoredPosition;
+        Vector2 anchoredPos = gridRectTransform.anchoredPosition;
         anchoredPos.x = isShowing ? showPosition : hidePosition;
-        rectTransform.anchoredPosition = anchoredPos;
+        gridRectTransform.anchoredPosition = anchoredPos;
     }
 
     public void ClearGrid()
@@ -243,8 +236,8 @@ public class ItemGrid : MonoBehaviour
         }
 
         isShowing = false;
-        Vector2 anchoredPos = rectTransform.anchoredPosition;
+        Vector2 anchoredPos = gridRectTransform.anchoredPosition;
         anchoredPos.x = hidePosition;
-        rectTransform.anchoredPosition = anchoredPos;
+        gridRectTransform.anchoredPosition = anchoredPos;
     }
 }

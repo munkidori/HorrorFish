@@ -95,7 +95,7 @@ public class InventoryManager : MonoBehaviour
         if (itemAtPosition != null)
         {
             GameManager.Instance.AddTime(itemAtPosition.itemData.healAmount);
-            SelectedItemGrid.RemoveItem(itemAtPosition);
+            SelectedItemGrid.DeleteItem(itemAtPosition);
             Destroy(itemAtPosition.gameObject);
         }
     }

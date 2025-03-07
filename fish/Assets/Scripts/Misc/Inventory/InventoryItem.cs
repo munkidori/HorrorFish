@@ -25,7 +25,7 @@ public class InventoryItem : MonoBehaviour
                 return itemData.height;
         }
     }
-    public int onGridPositionX, onGridPositionY;
+    public Vector2Int onGridPosition;
     public bool rotated = false;
 
     internal void Set(ItemData itemData, float tileSize)
