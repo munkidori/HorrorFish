@@ -84,8 +84,7 @@ public class ItemGrid : MonoBehaviour
         item.onGridPositionX = posX;
         item.onGridPositionY = posY;
 
-        Vector2 position = new Vector2();
-        position = CalculatePosition(item, posX, posY);
+        Vector2 position = CalculatePosition(item, posX, posY);
 
         rectTransform.localPosition = position;
     }

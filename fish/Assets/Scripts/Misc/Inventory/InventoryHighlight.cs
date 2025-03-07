@@ -18,8 +18,6 @@ public class InventoryHighlight : MonoBehaviour
         highlighter.sizeDelta = size;
     }
 
-
-
     public void SetParent(ItemGrid targetGrid)
     {
         if (targetGrid == null)

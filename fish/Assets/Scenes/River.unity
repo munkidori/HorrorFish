@@ -4516,7 +4516,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemPrefab: {fileID: 7028164592844560173, guid: 813c29af0e81a6b40b1a0eb4c20306a4, type: 3}
   canvasTransform: {fileID: 2006196485}
-  timer: {fileID: 1569590150}
 --- !u!114 &1790569784
 MonoBehaviour:
   m_ObjectHideFlags: 0

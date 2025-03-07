@@ -4,9 +4,6 @@ using UnityEngine.UI;
 //handles interaction between the player and the inventory system and its items
 public class InventoryManager : MonoBehaviour
 {
-    [SerializeField] GameObject itemPrefab;////
-    [SerializeField] Transform canvasTransform;////
-
     [HideInInspector] private ItemGrid selectedItemGrid;
     public ItemGrid SelectedItemGrid 
     { 
@@ -17,23 +14,35 @@ public class InventoryManager : MonoBehaviour
             inventoryHighlight.SetParent(value);
         }
     }
-
-    InventoryItem selectedItem;
+    
+    [HideInInspector] private InventoryItem selectedItem;
+    private InventoryItem SelectedItem
+    {
+        get => selectedItem;
+        set
+        {
+            selectedItem = value;
+            if(value != null)
+                selectedItemRect = value.GetComponent<RectTransform>();
+        }
+    }
     RectTransform selectedItemRect;
-    GameManager gameManager;
-    InventoryItem overlapItem;////
-    InventoryHighlight inventoryHighlight;////
-    InventoryItem itemToHighlight;////
-    Vector2Int oldPosition;////
+    Vector2Int currentTileGridPosition;
+    InventoryItem overlapItem;
+    InventoryHighlight inventoryHighlight;
+
+    Vector2Int previousHighlightPosition;
 
     private void Awake()
     {
         inventoryHighlight = GetComponent<InventoryHighlight>();
-        gameManager = GetComponent<GameManager>();
     }
 
     private void Update()
     {
+        //get tile position for current frame
+        currentTileGridPosition = GetTileGridPosition();
+
         //tries to update the location of a selected item every frame to the mouse position
         DragItem();
 
@@ -41,60 +50,52 @@ public class InventoryManager : MonoBehaviour
             RotateItem();
 
         // als muis buiten de grid is EN je hebt een item vast en ...
-        if (selectedItemGrid == null && selectedItem != null && Input.GetMouseButtonDown(0))
+        if (selectedItemGrid == null && SelectedItem != null && Input.GetMouseButtonDown(0))
             DiscardItem();
 
         // als je geen item vast hebt
-        if (Input.GetMouseButtonDown(1) && selectedItem == null)
+        if (Input.GetMouseButtonDown(1) && SelectedItem == null)
             EatItem();
 
-        // toon highlighter enkel wnr je in grid hovert
-        if (selectedItemGrid == null)
-        {
-            inventoryHighlight.Show(false);////
-            return;////
-        }
-
-        HandleHighlight();////
-
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && selectedItemGrid != null)
             GrabOrPlaceItem();      
+
+        HandleHighlight();
     }
 
     //tries to update the location of a selected item every frame to the mouse position
     private void DragItem()
     {
-        if (selectedItem != null)
+        if (SelectedItem != null)
             selectedItemRect.position = Input.mousePosition;
     }
 
     private void RotateItem()
     {
-        if (selectedItem == false)
+        if (SelectedItem == false)
             return;
 
-        selectedItem.Rotate();
+        SelectedItem.Rotate();
     }
 
     public void DiscardItem()
     {
-        if (selectedItem != null)
+        if (SelectedItem != null)
         {
-            Destroy(selectedItem.gameObject);
-            selectedItem = null;
+            Destroy(SelectedItem.gameObject);
+            SelectedItem = null;
         }
     }
 
     public void EatItem()
     {
         //get current item
-        Vector2Int tileGridPosition = GetTileGridPosition();
-        InventoryItem itemAtPosition = selectedItemGrid.GetItem(tileGridPosition.x, tileGridPosition.y);
+        InventoryItem itemAtPosition = selectedItemGrid.GetItem(currentTileGridPosition.x, currentTileGridPosition.y);
 
         //attempt to eat current item
         if (itemAtPosition != null)
         {
-            gameManager.timer.value += itemAtPosition.itemData.healAmount;
+            GameManager.Instance.AddTime(itemAtPosition.itemData.healAmount);
             selectedItemGrid.RemoveItem(itemAtPosition);
             Destroy(itemAtPosition.gameObject);
         }
@@ -103,37 +104,35 @@ public class InventoryManager : MonoBehaviour
     //checks if an item should be grabbed or place depending on the context
     private void GrabOrPlaceItem()
     {
-        Vector2Int tileGridPosition = GetTileGridPosition();
-
-        if (selectedItem == null)
-            GrabItem(tileGridPosition);
+        if (SelectedItem == null)
+            GrabItem(currentTileGridPosition);
         else
-            PlaceItem(tileGridPosition);
-        
+            PlaceItem(currentTileGridPosition);
     }
 
-    private void GrabItem(Vector2Int tileGridPosition)////
+    //attempts to update the current item
+    private void GrabItem(Vector2Int tileGridPosition)
     {
-        selectedItem = selectedItemGrid.PickUpItem(tileGridPosition.x, tileGridPosition.y);
-
-        if (selectedItem != null)
-            selectedItemRect = selectedItem.GetComponent<RectTransform>();
+        SelectedItem = selectedItemGrid.PickUpItem(tileGridPosition.x, tileGridPosition.y);
     }
 
-    public void PlaceItem(Vector2Int tileGridPosition)////
+    public void PlaceItem(Vector2Int tileGridPosition)
     {
-        bool complete = selectedItemGrid.PlaceItem(selectedItem, tileGridPosition.x, tileGridPosition.y, ref overlapItem);
+        //handles what happens inside the grid externally -> then store the result as bool & potential overlapItem to update in this part of the code.
+        bool isPlacementSuccesfull = selectedItemGrid.PlaceItem(SelectedItem, tileGridPosition.x, tileGridPosition.y, ref overlapItem);
 
-        if (complete)
+        if (isPlacementSuccesfull)
         {
-            selectedItem = null;
-
             if (overlapItem != null)
             {
-                selectedItem = overlapItem;
+                SelectedItem = overlapItem;
                 overlapItem = null;
-                selectedItemRect = selectedItem.GetComponent<RectTransform>();
+                //adjust render order to make it first on the screen
                 selectedItemRect.SetAsLastSibling();
+            }
+            else
+            {
+                SelectedItem = null;
             }
         }
     }
@@ -141,19 +140,28 @@ public class InventoryManager : MonoBehaviour
     //ask the grid what the current mouse position means
     private Vector2Int GetTileGridPosition()
     {
-        Vector2 position = Input.mousePosition;
-
-        //offset the grabbed item so that you hold the center of the item for placement
-        if (selectedItem != null)
+        if(selectedItemGrid)
         {
-            position.x -= (selectedItem.Width - 1) * ItemGrid.tileWidth / 2;
-            position.y += (selectedItem.Height - 1) * ItemGrid.tileHeight / 2;
-        }
+            Vector2 position = Input.mousePosition;
 
-        return selectedItemGrid.GetTileGridPosition(position);
+            //offset the grabbed item so that you hold the center of the item for placement
+            if (SelectedItem != null)
+            {
+                position.x -= (SelectedItem.Width - 1) * ItemGrid.tileWidth / 2;
+                position.y += (SelectedItem.Height - 1) * ItemGrid.tileHeight / 2;
+            }
+
+            return selectedItemGrid.GetTileGridPosition(position);
+        }
+        //when the grid isn't being targeted return an impossible value
+        else
+        {
+            return new Vector2Int(-1,-1);
+        }
     }
 
-    public void InsertItem(InventoryItem itemToInsert)////
+    //used by the fishing game to insert an item into the inventory
+    public void InsertItem(InventoryItem itemToInsert)
     {
         if (SelectedItemGrid == null)
             return;
@@ -172,33 +180,43 @@ public class InventoryManager : MonoBehaviour
         bool placed = SelectedItemGrid.PlaceItem(itemToInsert, posOnGrid.Value.x, posOnGrid.Value.y, ref overlapItem);
     }
 
-    private void HandleHighlight()////
+    private void HandleHighlight()
     {
-        Vector2Int positionGrid = GetTileGridPosition();
+        // toon highlighter enkel wnr je in grid hovert
+        inventoryHighlight.Show(selectedItemGrid != null);
 
-        if (oldPosition == positionGrid)
-            return;
-
-        oldPosition = positionGrid;
-
-        if (selectedItem == null)
+        //only apply changes when highlight has moved.
+        if (previousHighlightPosition == currentTileGridPosition)
         {
-            itemToHighlight = selectedItemGrid.GetItem(positionGrid.x, positionGrid.y);
-
-            if (itemToHighlight != null)
-            {
-                inventoryHighlight.Show(true);
-                inventoryHighlight.SetSize(itemToHighlight);
-                inventoryHighlight.SetPosition(selectedItemGrid, itemToHighlight);
-            }
-            else
-                inventoryHighlight.Show(false);
+            return;
         }
         else
         {
-            inventoryHighlight.Show(selectedItemGrid.BoundaryCheck(positionGrid.x, positionGrid.y, selectedItem.itemData.width, selectedItem.itemData.height));
-            inventoryHighlight.SetSize(selectedItem);
-            inventoryHighlight.SetPosition(selectedItemGrid, selectedItem, positionGrid.x, positionGrid.y);
+            previousHighlightPosition = currentTileGridPosition;
+            //when holding no items -> attempt to highlight an inventory item.
+            if (SelectedItem == null)
+            {
+                if(selectedItemGrid != null)
+                {
+                    InventoryItem itemToHighlight = selectedItemGrid.GetItem(currentTileGridPosition.x, currentTileGridPosition.y);
+
+                    if (itemToHighlight != null)
+                    {
+                        inventoryHighlight.Show(true);
+                        inventoryHighlight.SetSize(itemToHighlight);
+                        inventoryHighlight.SetPosition(selectedItemGrid, itemToHighlight);
+                    }
+                    else
+                        inventoryHighlight.Show(false);
+                }
+            }
+            //when holding an item -> highlight that.
+            else
+            {
+                inventoryHighlight.Show(selectedItemGrid.BoundaryCheck(currentTileGridPosition.x, currentTileGridPosition.y, SelectedItem.itemData.width, SelectedItem.itemData.height));
+                inventoryHighlight.SetSize(SelectedItem);
+                inventoryHighlight.SetPosition(selectedItemGrid, SelectedItem, currentTileGridPosition.x, currentTileGridPosition.y);
+            }
         }
     }
 }
