@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa8c122dd0d2ae347992951da2d7b10c, type: 3}
+  m_Name: Salmon
+  m_EditorClassIdentifier: 
+  itemName: Salmon
+  pullForce: 0.6
+  pushForce: 0.3
+  jumpCD: 1.2
+  healAmount: 0.1
+  width: 1
+  height: 1
+  image: {fileID: 21300000, guid: f3ebbe1b300da1e4ba99b8f2858cc086, type: 3}
