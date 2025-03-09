@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DockInteraction : MonoBehaviour
 {
@@ -17,7 +18,12 @@ public class DockInteraction : MonoBehaviour
     {
         if (isNearDock && Input.GetKeyDown(KeyCode.Space))
         {
-            gameManager.GameOver();
+            string currentScene = SceneManager.GetActiveScene().name;
+
+            if (currentScene == "Hub")
+                SceneManager.LoadScene("River");
+            else if (currentScene == "River")
+                SceneManager.LoadScene("Hub");
         }
     }
 
